@@ -12,6 +12,13 @@ const Users= mongoose.model('Users',users);
 const app = express();
 const port = process.env.PORT || 3000;
 
+app.all('*', function(req, res, next) {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', 'DELETE, HEAD, GET, OPTIONS, POST, PUT');
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
+    next();
+  });
+
 var LocalStrategy = require('passport-local').Strategy;
 app.use(session({ 
     secret: 'keyboard cat', 

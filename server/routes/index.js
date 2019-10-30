@@ -1,5 +1,5 @@
 const postsController = require('../controller/postsController'); // Import du contrôleur
-const usersController = require('../controller/usersController');
+const usersController = require('../controller/usersController'); 
 module.exports = (app) => {
     //Route pour les posts
     app.route('/posts').get(postsController.getAll);

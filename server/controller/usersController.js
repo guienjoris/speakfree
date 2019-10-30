@@ -23,7 +23,6 @@ const usersController= {
     create: (req, res) => { // Créer un Utilisateur
       bcrypt.hash(req.body.password, 8, function(err, hash) {
         const newUsers = new Users({username: req.body.username, usermail: req.body.usermail, password: hash});
-
         newUsers.save((err, savedUsers) => {
         return respond(err, savedUsers, res);
         
@@ -37,14 +36,21 @@ const usersController= {
         });
       },
     update: (req, res) => { // Mettre à jour un Utilisateur
+      if(req.session.passport.user === "Admin"){
+
         Users.findOneAndUpdate(req.params.id, req.body, (err, users) => {
           return respond(err, users, res);
         });
+      }
       },
     delete: (req, res) => { // Supprimer un Utilisateur
+      if(req.session.passport.user === "Admin"){
         Users.findOneAndDelete(req.params.id, (err, users) => {
           return respond(err, users, res);
         });
+        }else{
+          res.redirect('/')
+        }
       }
 }
 
