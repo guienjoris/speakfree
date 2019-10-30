@@ -37,12 +37,12 @@ const postsController= {
         });
       },
     update: (req, res) => { // Mettre à jour un Post
-        Posts.findByIdAndUpdate(req.params.id, req.body, (err, posts) => {
+        Posts.findOneAndUpdate(req.params.id, req.body, (err, posts) => {
           return respond(err, posts, res);
         });
       },
     delete: (req, res) => { // Supprimer un Post
-        Posts.findByIdAndRemove(req.params.id, (err, posts) => {
+        Posts.findOneAndDelete(req.params.id, (err, posts) => {
           return respond(err, posts, res);
         });
       }

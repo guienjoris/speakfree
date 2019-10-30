@@ -10,6 +10,9 @@ module.exports = (app) => {
     app.route('/posts/:id').put(postsController.update);
     app.route('/posts/:id').delete(postsController.delete);
     //Route pour les Users
+    app.route('/users').get(usersController.getAll)
+    app.route('/users/:id').get(usersController.get);
+    app.route('/users/:id').delete(usersController.delete);
     app.route('/register').post(usersController.create);
     app.route('/login').post(usersController.get);
 

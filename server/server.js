@@ -7,13 +7,22 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const routes = require('./routes/index');
-
+const users = require('./models/usersModel');
+const Users= mongoose.model('Users',users);
 const app = express();
 const port = process.env.PORT || 3000;
 
-
+var LocalStrategy = require('passport-local').Strategy;
+app.use(session({ 
+    secret: 'keyboard cat', 
+    resave: false, 
+    saveUninitialized: true }));
 app.use(passport.initialize());
 app.use(passport.session());
+
+passport.use(new LocalStrategy(Users.authenticate())); //passport pour la gestion de l'authentification
+passport.serializeUser(Users.serializeUser());
+passport.deserializeUser(Users.deserializeUser());
 
 
 mongoose.Promise = global.Promise;
