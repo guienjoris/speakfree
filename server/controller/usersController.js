@@ -30,6 +30,21 @@ const usersController= {
       });
         
     },
+    login: (req,res) =>{ //login
+      // Users.find({username:req.body.username , password: bcrypt.hash(req.body.password,8,(err,hash)=>{
+      //   var checkpwd=bcrypt.compareSync(Users.password,hash)
+      //   if(checkpwd === true){
+      //     console.log(`${req.body.username} authentifié`)
+      //     return respond(err,users,res)
+      //   }else{
+      //     return respond(err)
+      //   }
+
+      // })})
+      Users.find({username: req.body.username},(err,users)=>{
+        return respond(err,users,res)
+      })
+    },
     get: (req, res) => { // Récupérer un Utilisateur
         Users.findById(req.params.id, (err, users) => {
           return respond(err, users, res);

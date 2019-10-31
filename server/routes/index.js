@@ -14,7 +14,7 @@ module.exports = (app) => {
     app.route('/users/:id').get(usersController.get);
     app.route('/users/:id').delete(usersController.delete);
     app.route('/register').post(usersController.create);
-    app.route('/login').post(usersController.get);
+    app.route('/login').get(usersController.login);
 
 
   app.use((req, res) => { // Middleware pour capturer une requête qui ne match aucune des routes définies plus tôt
