@@ -1,28 +1,23 @@
-import { Component, OnInit } from '@angular/core';
-import { ApiService } from '../service/api.service';
-import { FormsModule } from '@angular/forms';
-
+import { Component } from '@angular/core';
+import { AuthenticationService, TokenPayload } from '../authentication.service';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  templateUrl: './login.component.html'
 })
-export class LoginComponent implements OnInit {
-  constructor(private api: ApiService) { 
-  }
-  username:string
-  password: string
-  checkUsers(){
-    console.log(this.username)
-    this.api.checkLogin()
-    .subscribe(data=>{
-      console.log(data)
-    }
-      )
-  }
-  ngOnInit() {
+export class LoginComponent {
+  credentials: TokenPayload = {
+    usermail: '',
+    password: ''
+  };
 
-  }
+  constructor(private auth: AuthenticationService, private router: Router) {}
 
+  login() {
+    this.auth.login(this.credentials).subscribe(() => {
+      this.router.navigateByUrl('/profile');
+    }, (err) => {
+      console.error(err);
+    });
+  }
 }

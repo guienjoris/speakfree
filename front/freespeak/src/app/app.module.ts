@@ -7,8 +7,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PostsComponent } from './posts/posts.component';
 import { LoginComponent } from './login/login.component';
-import { NavComponent } from './nav/nav.component';
 import { FormsModule } from '@angular/forms';
+import { RegisterComponent } from './register/register.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 
@@ -18,7 +19,8 @@ import { FormsModule } from '@angular/forms';
     AppComponent,
     PostsComponent,
     LoginComponent,
-    NavComponent,
+    RegisterComponent,
+    ProfileComponent,
     
   ],
   imports: [
