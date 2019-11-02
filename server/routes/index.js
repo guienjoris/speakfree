@@ -1,4 +1,6 @@
 const postsController = require('../controller/postsController'); // Import du contrôleur
+const authController = require('../controller/authentication')
+var dotenv = require('dotenv').config({path: './private.env'});
 
 var jwt = require('express-jwt');
 var auth = jwt({
@@ -15,18 +17,11 @@ module.exports = (app) => {
     app.route('/posts/:id').put(postsController.update);
     app.route('/posts/:id').delete(postsController.delete);
     //Route pour les Users
-    app.route('/register', auth.register)
-    app.route('/login', auth.login)
-    app.route('/profile', auth, auth.profileRead);
-
-    // app.route('/users').get(usersController.getAll)
-    // app.route('/users/:id').get(usersController.get);
-    // app.route('/users/:id').delete(usersController.delete);
-    // app.route('/register').post(usersController.create);
-    // app.route('/login').get(usersController.login);
-
+    app.route('/register').post(authController.register);
+    app.route('/login').post(authController.login);
+    app.route('/profile').get(authController.profileRead);
 
   app.use((req, res) => { // Middleware pour capturer une requête qui ne match aucune des routes définies plus tôt
-    res.status(404).json({url: req.originalUrl, error: 'not found'});
+    res.status(404).json({url: req.originalUrl, error: ' not found'});
   });
 };

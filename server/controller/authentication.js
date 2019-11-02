@@ -7,7 +7,7 @@ module.exports.register = function(req, res) {
   var user = new User();
 
   user.username = req.body.username;
-  user.usermail = req.body.useremail;
+  user.usermail = req.body.usermail;
 
   user.setPassword(req.body.password);
 
@@ -46,7 +46,6 @@ module.exports.login = function(req, res) {
 
 };
 module.exports.profileRead = function(req, res) {
-
   // If no user ID exists in the JWT return a 401
   if (!req.payload._id) {
     res.status(401).json({

@@ -11,6 +11,7 @@ var userSchema = new mongoose.Schema({
     },
     usermail:{
         type: String,
+        unique: true,
         required:true
     },
     hash: String,
@@ -18,11 +19,11 @@ var userSchema = new mongoose.Schema({
     
 })
 userSchema.methods.setPassword = (password) =>{
-    this.salt = crypto.randomBytes(16).toString('hex');
-    this.hash = crypto.pbkdf2Sync(password, this.salt, 1000, 64, 'sha512').toString('hex');;
+    // this.salt = crypto.randomBytes(16).toString('hex');
+    this.hash = crypto.pbkdf2Sync(password, process.env.DB_SECRET, 1000, 64, 'sha512').toString('hex');;
 }
 userSchema.methods.validPassword = (password)=> {
-    var hash = crypto.pbkdf2Sync(password, this.salt, 1000, 64, 'sha512').toString('hex');
+    var hash = crypto.pbkdf2Sync(password, process.env.DB_SECRET, 1000, 64, 'sha512').toString('hex');
     return this.hash === hash;
 };
 userSchema.methods.generateJwt = function() {

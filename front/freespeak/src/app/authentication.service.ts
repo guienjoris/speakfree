@@ -19,11 +19,11 @@ interface TokenResponse {
 export interface TokenPayload {
   usermail: string;
   password: string;
-  username?: string;
+  username ?: string;
 }
-@Injectable({
+@Injectable(({
   providedIn: 'root'
-})
+}))
 export class AuthenticationService {
   private token: string;
 
@@ -69,7 +69,7 @@ export class AuthenticationService {
     let base;
   
     if (method === 'post') {
-      base = this.http.post(`http://localhost:3000/${type}`, user);
+      base = this.http.post(`http://localhost:3000/${type}`, user)
     } else {
       base = this.http.get(`http://localhost:3000/${type}`, { headers: { Authorization: `Bearer ${this.getToken()}` }});
     }

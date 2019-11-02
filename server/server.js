@@ -11,19 +11,27 @@ const User= mongoose.model('User',user);
 const app = express();
 const port = process.env.PORT || 3000;
 const cors = require('cors');
-app.all('*', function(req, res, next) {
-    res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Methods', 'DELETE, HEAD, GET, OPTIONS, POST, PUT');
-    res.header('Access-Control-Allow-Headers', 'Content-Type');
-    next();
-    });
+
 app.use(cors());
+mongoose.Promise = global.Promise;
+mongoose.connect(urlmongo, {useNewUrlParser : true, useUnifiedTopology: true});
+
+var db = mongoose.connection;
+db.on('error', console.error.bind(console,'connection error'));
+db.once('open', ()=>{
+    console.log(`Connecting to MongoDB Atlas on port: ${port}`)
+})
+
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
+
+routes(app);
+app.listen(port);
 var LocalStrategy = require('passport-local').Strategy;
 app.use(passport.initialize());
 passport.use(new LocalStrategy({
     usernameField: 'usermail'
-},
-function(username, password, done) {
+},function(username, password, done) {
 User.findOne({ usermail: username }, function (err, user) {
     if (err) { return done(err); }
     // Return if user not found in database
@@ -46,24 +54,10 @@ User.findOne({ usermail: username }, function (err, user) {
 // error handlers
 // Catch unauthorised errors
 app.use(function (err, req, res, next) {
-    if (err.name === 'UnauthorizedError') {
+    if (err.username === 'UnauthorizedError') {
     res.status(401);
-    res.json({"message" : err.name + ": " + err.message});
+    res.json({"message" : err.username + ": " + err.message});
     }
 });
 
 
-mongoose.Promise = global.Promise;
-mongoose.connect(urlmongo, {useNewUrlParser : true, useUnifiedTopology: true});
-
-var db = mongoose.connection;
-db.on('error', console.error.bind(console,'connection error'));
-db.once('open', ()=>{
-    console.log(`Connecting to MongoDB Atlas on port: ${port}`)
-})
-
-app.use(bodyParser.urlencoded({extended: true}));
-app.use(bodyParser.json());
-
-routes(app);
-app.listen(port);

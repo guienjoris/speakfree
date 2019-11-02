@@ -1,4 +1,5 @@
 <ul class="nav navbar-nav navbar-right">
+    <li><a routerLink="/" >Accueil</a></li>
     <li *ngIf="!auth.isLoggedIn()"><a routerLink="/register">S'enregistrer</a></li>
     <li *ngIf="!auth.isLoggedIn()"><a routerLink="/login">Se connecter</a></li>
     <li *ngIf="auth.isLoggedIn()"><a routerLink="/profile">{{ auth.getUserDetails()?.name }}</a></li>
