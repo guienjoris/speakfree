@@ -9,7 +9,8 @@ module.exports.register = function(req, res) {
   user.username = req.body.username;
   user.usermail = req.body.usermail;
 
-  user.setPassword(req.body.password);
+  user.hash = user.setPassword(req.body.password);
+  console.log(user)
 
   user.save(function(err) {
     var token;
@@ -59,5 +60,24 @@ module.exports.profileRead = function(req, res) {
         res.status(200).json(user);
       });
   }
-
 };
+module.exports.admin = function(req,res){
+  if (!req.payload._id) {
+    res.status(401).json({
+      "message" : "UnauthorizedError: private profile"
+    });
+  } else {
+  User
+    .findById(req.payload._id)
+    .exec(function(err, user) {
+      if(user.isAdmin === true){
+      res.status(200).json(user);
+      }else{
+        res.status(400).json({
+          "message":"Forbidden Access"
+        })
+      }
+    });
+    }
+  }
+

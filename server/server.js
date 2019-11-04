@@ -29,6 +29,7 @@ routes(app);
 app.listen(port);
 var LocalStrategy = require('passport-local').Strategy;
 app.use(passport.initialize());
+
 passport.use(new LocalStrategy({
     usernameField: 'usermail'
 },function(username, password, done) {
@@ -42,6 +43,7 @@ User.findOne({ usermail: username }, function (err, user) {
     }
     // Return if password is wrong
     if (!user.validPassword(password)) {
+        console.log(user)
     return done(null, false, {
         message: 'Password is wrong'
     });
@@ -54,10 +56,11 @@ User.findOne({ usermail: username }, function (err, user) {
 // error handlers
 // Catch unauthorised errors
 app.use(function (err, req, res, next) {
-    if (err.username === 'UnauthorizedError') {
+    if (err.username === 'Unauthorized Error') {
     res.status(401);
     res.json({"message" : err.username + ": " + err.message});
     }
 });
+
 
 

@@ -1,10 +1,10 @@
 <div class="form-horizontal">
     <div class="form-group">
-      <label class="col-sm-3 control-label">Full name</label>
-      <p class="form-control-static">{{ details?.username }}</p>
+      <label class="col-sm-3 control-label">Username: </label>
+      <p class="form-control-static">{{ auth.getUserDetails()?.username }}</p>
     </div>
     <div class="form-group">
-      <label class="col-sm-3 control-label">Email</label>
-      <p class="form-control-static">{{ details?.usermail }}</p>
+      <label class="col-sm-3 control-label">User Email: </label>
+      <p class="form-control-static">{{ auth.getUserDetails()?.usermail }}</p>
     </div>
   </div>

@@ -9,6 +9,8 @@ import { FormsModule } from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AuthGuardService } from './auth-guard.service';
+import { AdminComponent } from './admin/admin.component';
+import { AdminGuardService } from './admin-guard.service';
 
 
 
@@ -20,6 +22,7 @@ import { AuthGuardService } from './auth-guard.service';
     LoginComponent,
     RegisterComponent,
     ProfileComponent,
+    AdminComponent,
     
   ],
   imports: [
@@ -28,7 +31,7 @@ import { AuthGuardService } from './auth-guard.service';
     HttpClientModule,
     FormsModule
   ],
-  providers: [AuthGuardService],
+  providers: [AuthGuardService,AdminGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

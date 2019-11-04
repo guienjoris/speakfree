@@ -10,6 +10,7 @@ export interface UserDetails {
   username: string;
   exp: number;
   iat: number;
+  isAdmin: boolean;
 }
 
 interface TokenResponse {
@@ -51,7 +52,10 @@ export class AuthenticationService {
     let payload;
     if (token) {
       payload = token.split('.')[1];
+
       payload = window.atob(payload);
+      console.log(payload)
+
       return JSON.parse(payload);
     } else {
       return null;
@@ -61,17 +65,30 @@ export class AuthenticationService {
     const user = this.getUserDetails();
     if (user) {
       return user.exp > Date.now() / 1000;
-    } else {
+    }
+    else 
+    {
       return false;
     }
   }
-  private request(method: 'post'|'get', type: 'login'|'register'|'profile', user?: TokenPayload): Observable<any> {
+
+  public isAdminLogged(): boolean {
+    const user = this.getUserDetails();
+    if (user.isAdmin) {
+      return user.exp > Date.now() / 1000;
+    }
+    else 
+    {
+      return false;
+    }
+  }
+  private request(method: 'post'|'get', type: 'login'|'register'|'profile'| 'admin', user?: TokenPayload | UserDetails): Observable<any> {
     let base;
   
     if (method === 'post') {
       base = this.http.post(`http://localhost:3000/${type}`, user)
     } else {
-      base = this.http.get(`http://localhost:3000/${type}`, { headers: { Authorization: `Bearer ${this.getToken()}` }});
+      base = this.http.get(`http://localhost:3000/${type}`,  { headers: { Authorization: `Bearer ${this.getToken()}` }});
     }
   
     const request = base.pipe(
@@ -95,5 +112,8 @@ export class AuthenticationService {
   
   public profile(): Observable<any> {
     return this.request('get', 'profile');
+  }
+  public admin(user : TokenPayload): Observable<any>{
+    return this.request('post','admin',user);
   }
 }
