@@ -25,9 +25,8 @@ const postsController= {
       })
   },
     create: (req, res) => { // Créer un Post
-        const newPosts = new Posts(req.body);
+        const newPosts = new Posts(Posts.post=req.body);
         newPosts.save((err, savedPosts) => {
-            
           return respond(err, savedPosts, res);
         });
       },
@@ -37,7 +36,9 @@ const postsController= {
         });
       },
     update: (req, res) => { // Mettre à jour un Post
-        Posts.findOneAndUpdate(req.params.id, req.body, (err, posts) => {
+      console.log(req.body);
+        Posts.findOneAndUpdate({_id :req.params.id}, Posts.validation= req.body, (err, posts) => {
+
           return respond(err, posts, res);
         });
       },

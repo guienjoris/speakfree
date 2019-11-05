@@ -14,7 +14,7 @@ module.exports = (app) => {
     app.route('/validationposts').get(postsController.getAllToValidate);
     app.route('/postsvalide').get(postsController.getAllValidate);
     app.route('/posts/:id').get(postsController.get);
-    app.route('/posts/:id').put(postsController.update);
+    app.route('/postsupdate/:id').post(postsController.update);
     app.route('/posts/:id').delete(postsController.delete);
     //Route pour les Users
     app.route('/register').post(authController.register);

@@ -54,7 +54,6 @@ export class AuthenticationService {
       payload = token.split('.')[1];
 
       payload = window.atob(payload);
-      console.log(payload)
 
       return JSON.parse(payload);
     } else {
@@ -71,10 +70,9 @@ export class AuthenticationService {
       return false;
     }
   }
-
   public isAdminLogged(): boolean {
     const user = this.getUserDetails();
-    if (user.isAdmin) {
+    if (user && user.isAdmin) {
       return user.exp > Date.now() / 1000;
     }
     else 

@@ -11,6 +11,9 @@ import { ProfileComponent } from './profile/profile.component';
 import { AuthGuardService } from './auth-guard.service';
 import { AdminComponent } from './admin/admin.component';
 import { AdminGuardService } from './admin-guard.service';
+import { CreatePostComponent } from './create-post/create-post.component';
+import { AdminUsersComponent } from './admin-users/admin-users.component';
+import { AdminPostsComponent } from './admin-posts/admin-posts.component';
 
 
 
@@ -23,6 +26,9 @@ import { AdminGuardService } from './admin-guard.service';
     RegisterComponent,
     ProfileComponent,
     AdminComponent,
+    CreatePostComponent,
+    AdminUsersComponent,
+    AdminPostsComponent,
     
   ],
   imports: [

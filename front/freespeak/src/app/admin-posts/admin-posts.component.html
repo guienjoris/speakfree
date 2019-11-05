@@ -1,0 +1,7 @@
+<h2>Posts à valider</h2>
+<ul><li *ngFor="let article of posts ">
+    {{article.post}}<br>
+    {{article.date}}
+    <button (click)="validation(article._id)">Valider</button>
+    <button (click)="delete(article._id)">Supprimer</button>
+</li></ul>
