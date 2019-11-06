@@ -3,6 +3,13 @@ const mongoose= require('mongoose');
 const User= mongoose.model('Users',user);
 var passport= require('passport');
 
+function respond(err,result,res){
+  if(err){
+      return res.status(500).json({error:err});
+  }
+  return res.json(result)
+}
+
 module.exports.register = function(req, res) {
   var user = new User();
 
@@ -10,7 +17,6 @@ module.exports.register = function(req, res) {
   user.usermail = req.body.usermail;
 
   user.hash = user.setPassword(req.body.password);
-  console.log(user)
 
   user.save(function(err) {
     var token;
@@ -80,4 +86,16 @@ module.exports.admin = function(req,res){
     });
     }
   }
+  module.exports.getAll = function(req,res){
+   // Récupérer tous les Users
+      User.find({}, (err, users) => {
+          return respond(err, users, res);
+      });
+  }
+  module.exports.delete = function(req,res){
+    User.findOneAndDelete(req.params.id, (err, users) => {
+      return respond(err, users, res);
+    });
+  }
+  
 

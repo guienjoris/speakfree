@@ -16,7 +16,6 @@ var userSchema = new mongoose.Schema({
     },
     hash:{
         type: String,
-        required: true
     },
     isAdmin:{
         type:Boolean,
@@ -26,12 +25,11 @@ var userSchema = new mongoose.Schema({
 userSchema.methods.setPassword = (password) =>{
     // this.salt = crypto.randomBytes(16).toString('hex');
     this.hash = crypto.pbkdf2Sync(password, process.env.DB_SECRET, 1000, 64, 'sha512').toString('hex');
-    console.log('fff', this.hash)
     return this.hash;
 }
 userSchema.methods.validPassword = (password)=> {
     var hash = crypto.pbkdf2Sync(password, process.env.DB_SECRET, 1000, 64, 'sha512').toString('hex');
-    return this.hash === hash;
+    return this.hash = hash;
 };
 userSchema.methods.generateJwt = function() {
     var expiry = new Date();

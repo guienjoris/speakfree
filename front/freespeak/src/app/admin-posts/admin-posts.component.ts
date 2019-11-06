@@ -8,13 +8,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./admin-posts.component.scss']
 })
 export class AdminPostsComponent implements OnInit {
-  
   posts : any = [];
+  validate : boolean = true;
   constructor(private api: ApiService, private router: Router) { }
 
   validation(id : string){
     console.log(id)
-    this.api.update(id).subscribe(data=>{
+    this.api.update(id,this.validate).subscribe(data=>{
       console.log(data)
     })
   }

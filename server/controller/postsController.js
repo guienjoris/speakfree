@@ -36,9 +36,7 @@ const postsController= {
         });
       },
     update: (req, res) => { // Mettre à jour un Post
-      console.log(req.body);
-        Posts.findOneAndUpdate({_id :req.params.id}, Posts.validation= req.body, (err, posts) => {
-
+        Posts.findOneAndUpdate({_id :req.params.id}, {$set:{validation: req.body.validate}}, (err, posts) => {
           return respond(err, posts, res);
         });
       },

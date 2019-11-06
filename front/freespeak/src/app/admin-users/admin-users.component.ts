@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../service/api.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-users',
@@ -7,9 +9,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminUsersComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private api: ApiService, private router: Router) { }
+  users: any = [];
+  delete(id: string){
+    this.api.deleteUser(id).subscribe(data=>{
+      console.log(data)
+    })
+  }
   ngOnInit() {
+    this.api.getAllUsers()
+    .subscribe(data =>{
+      for(const d of (data as any)){
+        this.users.push({
+          username: d.username,
+          usermail: d.usermail,
+          _id: d._id,
+          isAdmin: d.isAdmin
+        })
+      }
+    })
   }
 
 }

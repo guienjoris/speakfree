@@ -14,7 +14,7 @@ const cors = require('cors');
 
 app.use(cors());
 mongoose.Promise = global.Promise;
-mongoose.connect(urlmongo, {useNewUrlParser : true, useUnifiedTopology: true});
+mongoose.connect(urlmongo, {useNewUrlParser : true, useUnifiedTopology: true, useFindAndModify:false,useCreateIndex:true});
 
 var db = mongoose.connection;
 db.on('error', console.error.bind(console,'connection error'));

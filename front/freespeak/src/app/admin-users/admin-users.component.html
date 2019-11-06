@@ -1,1 +1,8 @@
-<p>admin-users works!</p>
+<h2>Gestion des Utilisateurs</h2>
+<ul><li *ngFor="let user of users ">
+    <p>Username: {{user.username}}</p>
+    <p>Usermail: {{user.usermail}}</p>
+    <p>Admin: {{user.isAdmin}}</p>
+    <button (click)="delete(user._id)">Supprimer</button>
+
+</li></ul>
