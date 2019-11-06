@@ -10,6 +10,8 @@ import { Router } from '@angular/router';
 export class AdminUsersComponent implements OnInit {
 
   constructor(private api: ApiService, private router: Router) { }
+  checked:boolean;
+  adminCheck : boolean 
   users: any = [];
   delete(id: string){
     this.api.deleteUser(id).subscribe(data=>{
@@ -17,6 +19,7 @@ export class AdminUsersComponent implements OnInit {
     })
   }
   ngOnInit() {
+    console.log(this.checked)
     this.api.getAllUsers()
     .subscribe(data =>{
       for(const d of (data as any)){
@@ -25,9 +28,11 @@ export class AdminUsersComponent implements OnInit {
           usermail: d.usermail,
           _id: d._id,
           isAdmin: d.isAdmin
+        
         })
       }
     })
+    
   }
 
 }
