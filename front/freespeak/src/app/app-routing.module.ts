@@ -10,6 +10,8 @@ import { AdminGuardService} from './admin-guard.service';
 import { CreatePostComponent } from './create-post/create-post.component';
 import { AdminUsersComponent } from './admin-users/admin-users.component';
 import { AdminPostsComponent } from './admin-posts/admin-posts.component'
+import { ContactComponent } from './contact/contact.component';
+import { AdminContactComponent } from './admin-contact/admin-contact.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -18,7 +20,9 @@ const routes: Routes = [
   {path: 'admin', component: AdminComponent, canActivate:[AdminGuardService]},
   {path: 'create-post', component: CreatePostComponent,canActivate: [AuthGuardService] },
   {path: 'admin/admin-users', component: AdminUsersComponent, canActivate:[AdminGuardService]},
-  {path: 'admin/admin-posts',component: AdminPostsComponent, canActivate:[AdminGuardService]}
+  {path: 'admin/admin-posts',component: AdminPostsComponent, canActivate:[AdminGuardService]},
+  {path: 'contact', component: ContactComponent},
+  {path: 'admin/admin-contact',component: AdminContactComponent, canActivate:[AdminGuardService]}
 
 ];
 

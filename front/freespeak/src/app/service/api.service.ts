@@ -9,9 +9,14 @@ const ValidePostsUrl = 'http://localhost:3000/postsvalide';
 const CreatePostUrl = 'http://localhost:3000/posts';
 const ToValidePostsUrl = 'http://localhost:3000/validationposts';
 const getAllUsersUrl = 'http://localhost:3000/adminusers'
+const contactUrl = 'http://localhost:3000/contact'
 
 export interface Post {
   post: string
+}
+export interface Contact {
+  usermail: string,
+  message: string
 }
 @Injectable({
   providedIn: 'root'
@@ -44,5 +49,15 @@ export class ApiService {
   }
   getAllUsers(){
     return this.http.get(getAllUsersUrl)
+  }
+  createContact(contact:Contact){
+    const config = { headers: new HttpHeaders().set('Content-Type','application/json') };
+    return this.http.post(contactUrl, contact,config)
+  }
+  getAllContact(){
+    return this.http.get(contactUrl)
+  }
+  deleteContact(id){
+    return this.http.delete(`${contactUrl}/${id}`)
   }
 }

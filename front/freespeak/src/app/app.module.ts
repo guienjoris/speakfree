@@ -14,6 +14,8 @@ import { AdminGuardService } from './admin-guard.service';
 import { CreatePostComponent } from './create-post/create-post.component';
 import { AdminUsersComponent } from './admin-users/admin-users.component';
 import { AdminPostsComponent } from './admin-posts/admin-posts.component';
+import { ContactComponent } from './contact/contact.component';
+import { AdminContactComponent } from './admin-contact/admin-contact.component';
 
 
 
@@ -29,6 +31,8 @@ import { AdminPostsComponent } from './admin-posts/admin-posts.component';
     CreatePostComponent,
     AdminUsersComponent,
     AdminPostsComponent,
+    ContactComponent,
+    AdminContactComponent,
     
   ],
   imports: [

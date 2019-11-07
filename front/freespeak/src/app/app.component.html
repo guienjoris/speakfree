@@ -5,6 +5,7 @@
     <li *ngIf="auth.isLoggedIn()"><a routerLink="/profile">{{ auth.getUserDetails()?.username }}</a></li>
     <li *ngIf="auth.isLoggedIn()"><a routerLink="/create-post">Créer un Post</a></li>
     <li *ngIf="auth.isAdminLogged()"><a routerLink="/admin">Panneau d'administration</a></li>
+    <li><a routerLink="/contact">Contact</a></li>
     <li *ngIf="auth.isLoggedIn()"><a (click)="auth.logout()">Deconnexion</a></li>
   </ul>
 <app-posts></app-posts>
