@@ -21,8 +21,9 @@ module.exports = (app) => {
     app.route('/login').post(authController.login);
     app.route('/profile').get(authController.profileRead);
     app.route('/admin');
-    app.route('/adminusers').get(authController.getAll)
-    app.route('/users/:id').delete(authController.delete)
+    app.route('/adminusers').get(authController.getAll);
+    app.route('/users/:id').delete(authController.delete);
+    app.route('/users/:id').post(authController.updateAdmin);
 
   app.use((req, res) => { // Middleware pour capturer une requête qui ne match aucune des routes définies plus tôt
     res.status(404).json({url: req.originalUrl, error: ' not found'});

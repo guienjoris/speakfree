@@ -86,6 +86,11 @@ module.exports.admin = function(req,res){
     });
     }
   }
+  module.exports.updateAdmin = function(req,res){
+    User.findOneAndUpdate({_id :req.params.id},{$set:{isAdmin:req.body.validate}},(err,user)=>{
+      return respond(err,user,res);
+    })
+  }
   module.exports.getAll = function(req,res){
    // Récupérer tous les Users
       User.find({}, (err, users) => {

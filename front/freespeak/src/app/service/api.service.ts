@@ -38,6 +38,10 @@ export class ApiService {
     const config = { headers: new HttpHeaders().set('Content-Type','application/json') };
     return this.http.post(`http://localhost:3000/postsupdate/${id}`,{validate},config)
   }
+  updateAdmin(id:string,validate:boolean){
+    const config = { headers: new HttpHeaders().set('Content-Type','application/json') };
+    return this.http.post(`http://localhost:3000/users/${id}`,{validate},config)
+  }
   getAllUsers(){
     return this.http.get(getAllUsersUrl)
   }

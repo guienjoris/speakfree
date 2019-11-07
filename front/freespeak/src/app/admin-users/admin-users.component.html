@@ -4,7 +4,7 @@
     <p>Usermail: {{user.usermail}}</p>
     <p>Admin: {{user.isAdmin}}</p>
     <div *ngIf="!user.isAdmin">
-        <button > Passer Admin</button>
+            <button (click)="updateAdmin(user._id)">Passer Admin</button>
     </div>
     <button (click)="delete(user._id)">Supprimer</button>
     

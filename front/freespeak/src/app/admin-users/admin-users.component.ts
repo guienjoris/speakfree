@@ -10,16 +10,20 @@ import { Router } from '@angular/router';
 export class AdminUsersComponent implements OnInit {
 
   constructor(private api: ApiService, private router: Router) { }
-  checked:boolean;
-  adminCheck : boolean 
+  validate : boolean = true;
   users: any = [];
   delete(id: string){
     this.api.deleteUser(id).subscribe(data=>{
       console.log(data)
     })
   }
+  updateAdmin(id:string){
+    console.log(this.validate);
+    this.api.updateAdmin(id,this.validate).subscribe(data =>{
+      console.log(data)
+    })
+  }
   ngOnInit() {
-    console.log(this.checked)
     this.api.getAllUsers()
     .subscribe(data =>{
       for(const d of (data as any)){
