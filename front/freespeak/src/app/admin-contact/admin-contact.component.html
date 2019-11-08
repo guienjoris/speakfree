@@ -2,7 +2,7 @@
 
 <ul><li *ngFor="let contact of contacts ">
     <p>Usermail: {{contact.usermail}}</p>
-    <p>Admin: {{contact.message}}</p>
+    <p>Message: {{contact.message}}</p>
     <a [href]="'mailto:'+ contact.usermail">Répondre</a>
     <button (click)="delete(contact._id)">Supprimer</button>
 </li></ul>
