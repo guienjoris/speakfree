@@ -14,6 +14,7 @@ import { ContactComponent } from './contact/contact.component';
 import { AdminContactComponent } from './admin-contact/admin-contact.component';
 
 const routes: Routes = [
+  { path: '', component: PostsComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component : RegisterComponent},
   {path: 'profile', component: ProfileComponent, canActivate: [AuthGuardService] },

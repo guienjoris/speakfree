@@ -16,6 +16,7 @@ import { AdminUsersComponent } from './admin-users/admin-users.component';
 import { AdminPostsComponent } from './admin-posts/admin-posts.component';
 import { ContactComponent } from './contact/contact.component';
 import { AdminContactComponent } from './admin-contact/admin-contact.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
@@ -39,7 +40,8 @@ import { AdminContactComponent } from './admin-contact/admin-contact.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule
   ],
   providers: [AuthGuardService,AdminGuardService],
   bootstrap: [AppComponent]

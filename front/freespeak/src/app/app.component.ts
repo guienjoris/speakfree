@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthenticationService } from './authentication.service';
+import { NgModel } from '@angular/forms';
 
 
 @Component({
@@ -8,7 +9,26 @@ import { AuthenticationService } from './authentication.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'Freespeak';
+  title = 'Speak Free';
+  status = false;
+  statusAccueil : boolean = false;
+  statusRegister: boolean = false;
+  statusLogin: boolean = false;
+  statusProfile: boolean = false;
+  statusCreate: boolean = false;
+  statusContact: boolean = false;
+  statusLogout: boolean = false;
+
+  test(loc){
+    this.status+loc = !this.status+loc;
+    console.log(this.statusAccueil)
+  }
+
+
+
+
   constructor(public auth: AuthenticationService) {}
+  
+  
 
 }
