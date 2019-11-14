@@ -2,17 +2,17 @@
 <a href="/"><img src="../assets/logo.png" alt="logo"></a>
 <ul class="nav navbar-nav navbar-right">
     <li><a routerLink="/" 
-      [(ngModel)]="statusAccueil"  
-      [ngClass]=" statusAccueil === true ? 'orange':'white'" 
-      (click)="test('Accueil')"
-      ngDefaultControl >Accueil</a></li>
-    <li *ngIf="!auth.isLoggedIn()"><a [ngClass]=" statusRegister === true ? 'orange':'white'" routerLink="/register"  >S'enregistrer</a></li>
-    <li *ngIf="!auth.isLoggedIn()"><a [ngClass]=" statusLogin === true ? 'orange':'white'"routerLink="/login"  >Se connecter</a></li>
-    <li *ngIf="auth.isLoggedIn()"><a [ngClass]=" statusProfile=== true ? 'orange':'white'" routerLink="/profile"  >{{ auth.getUserDetails()?.username }}</a></li>
-    <li *ngIf="auth.isLoggedIn()"><a [ngClass]=" statusCreate === true ? 'orange':'white'" routerLink="/create-post"  >Créer un Post</a></li>
-    <li *ngIf="auth.isAdminLogged()"><a [ngClass]=" statusAdmin === true ? 'orange':'white'" routerLink="/admin" >Panneau d'administration</a></li>
-    <li><a routerLink="/contact" [ngClass]=" statusContact === true ? 'orange':'white'"  >Contact</a></li>
-    <li *ngIf="auth.isLoggedIn()" [ngClass]=" statusLogout === true ? 'orange':'white'"><a (click)="auth.logout()">Deconnexion</a></li>
+      [ngClass]=" statusAccueil === true ? 'orange': 'white'" 
+      (click)="change('accueil')"
+       >Accueil</a></li>
+    <li *ngIf="!auth.isLoggedIn()"><a [ngClass]=" statusRegister === true ? 'orange':'white'" routerLink="/register"       (click)="change('register')"
+      >S'enregistrer</a></li>
+    <li *ngIf="!auth.isLoggedIn()"><a [ngClass]=" statusLogin === true ? 'orange':'white'"routerLink="/login" (click)="change('login')"  >Se connecter</a></li>
+    <li *ngIf="auth.isLoggedIn()"><a [ngClass]=" statusProfile=== true ? 'orange':'white'" routerLink="/profile" (click)="change('profile')"  >{{ auth.getUserDetails()?.username }}</a></li>
+    <li *ngIf="auth.isLoggedIn()"><a [ngClass]=" statusCreate === true ? 'orange':'white'" routerLink="/create-post" (click)="change('create')" >Créer un Post</a></li>
+    <li *ngIf="auth.isAdminLogged()"><a [ngClass]=" statusAdmin === true ? 'orange':'white'" routerLink="/admin" (click)="change('admin')" >Panneau d'administration</a></li>
+    <li><a routerLink="/contact" [ngClass]=" statusContact === true ? 'orange':'white'" (click)="change('contact')" >Contact</a></li>
+    <li *ngIf="auth.isLoggedIn()" [ngClass]=" statusLogout === true ? 'orange':'white'"><a (click)="auth.logout()" (click)="change('logout')">Deconnexion</a></li>
   </ul>
 </div>
 <router-outlet></router-outlet>

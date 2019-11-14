@@ -15,9 +15,11 @@ export class PostsComponent implements OnInit {
     this.api.getPostsValidate()
     .subscribe(data =>{
       for(const d of (data as any)){
+        let dateString= d.date;
+        let newDate= new Date(dateString)
         this.posts.push({
           post: d.post,
-          date: d.date,
+          date: `Date : ${newDate.getDate()}/${newDate.getMonth()+1}/${newDate.getFullYear()} ${newDate.getHours()}:${newDate.getMinutes()}`
         })
       }
     })

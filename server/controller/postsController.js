@@ -41,7 +41,7 @@ const postsController= {
         });
       },
     delete: (req, res) => { // Supprimer un Post
-        Posts.findOneAndDelete(req.params.id, (err, posts) => {
+        Posts.findOneAndDelete({_id:req.params.id}, (err, posts) => {
           return respond(err, posts, res);
         });
       }

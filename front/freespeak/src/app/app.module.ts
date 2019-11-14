@@ -17,6 +17,13 @@ import { AdminPostsComponent } from './admin-posts/admin-posts.component';
 import { ContactComponent } from './contact/contact.component';
 import { AdminContactComponent } from './admin-contact/admin-contact.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatInputModule} from '@angular/material/input';
+import {MatButtonModule} from '@angular/material/button';
+import {MatListModule} from '@angular/material/list';
+import {MatTableModule} from '@angular/material/table';
+
+
+
 
 
 
@@ -33,15 +40,18 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AdminUsersComponent,
     AdminPostsComponent,
     ContactComponent,
-    AdminContactComponent,
-    
+    AdminContactComponent,    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatInputModule,
+    MatButtonModule,
+    MatListModule,
+    MatTableModule
   ],
   providers: [AuthGuardService,AdminGuardService],
   bootstrap: [AppComponent]

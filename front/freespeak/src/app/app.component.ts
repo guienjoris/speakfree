@@ -1,7 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnChanges } from '@angular/core';
 import { AuthenticationService } from './authentication.service';
-import { NgModel } from '@angular/forms';
-
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-root',
@@ -10,24 +9,112 @@ import { NgModel } from '@angular/forms';
 })
 export class AppComponent {
   title = 'Speak Free';
-  status = false;
-  statusAccueil : boolean = false;
-  statusRegister: boolean = false;
-  statusLogin: boolean = false;
-  statusProfile: boolean = false;
-  statusCreate: boolean = false;
-  statusContact: boolean = false;
-  statusLogout: boolean = false;
+  statusAccueil = false;
+  statusLogin = false;
+  statusProfile = false;
+  statusRegister = false;
+  statusCreate = false;
+  statusAdmin = false;
+  statusContact = false;
+  statusLogout = false;
 
-  test(loc){
-    this.status+loc = !this.status+loc;
-    console.log(this.statusAccueil)
+  change(index){
+    if(index=== 'accueil'){
+      this.statusAccueil = true;
+      this.statusLogin = false;
+      this.statusProfile = false;
+      this.statusRegister = false;
+      this.statusCreate = false;
+      this.statusAdmin = false;
+      this.statusContact = false;
+      this.statusLogout = false;
+    }
+    if(index === 'register'){
+      this.statusAccueil = false;
+      this.statusLogin = false;
+      this.statusProfile = false;
+      this.statusRegister = true;
+      this.statusCreate = false;
+      this.statusAdmin = false;
+      this.statusContact = false;
+      this.statusLogout = false;
+    }
+    if(index === 'login'){
+      this.statusAccueil = false;
+      this.statusLogin = true;
+      this.statusProfile = false;
+      this.statusRegister = false;
+      this.statusCreate = false;
+      this.statusAdmin = false;
+      this.statusContact = false;
+      this.statusLogout = false;
+    }
+    if(index === 'profile'){
+      this.statusAccueil = false;
+      this.statusLogin = false;
+      this.statusProfile = true;
+      this.statusRegister = false;
+      this.statusCreate = false;
+      this.statusAdmin = false;
+      this.statusContact = false;
+      this.statusLogout = false;
+    }
+    if(index === 'create'){
+      this.statusAccueil = false;
+      this.statusLogin = false;
+      this.statusProfile = false;
+      this.statusRegister = false;
+      this.statusCreate = true;
+      this.statusAdmin = false;
+      this.statusContact = false;
+      this.statusLogout = false;
+    }
+    if(index === 'admin'){
+      this.statusAccueil = false;
+      this.statusLogin = false;
+      this.statusProfile = false;
+      this.statusRegister = false;
+      this.statusCreate = false;
+      this.statusAdmin = true;
+      this.statusContact = false;
+      this.statusLogout = false;
+    }
+    if(index === 'register'){
+      this.statusAccueil = false;
+      this.statusLogin = false;
+      this.statusProfile = false;
+      this.statusRegister = true;
+      this.statusCreate = false;
+      this.statusAdmin = false;
+      this.statusContact = false;
+      this.statusLogout = false;
+    }
+    if(index === 'logout'){
+      this.statusAccueil = false;
+      this.statusLogin = false;
+      this.statusProfile = false;
+      this.statusRegister = false;
+      this.statusCreate = false;
+      this.statusAdmin = false;
+      this.statusContact = false;
+      this.statusLogout = true;
+    }
+    if(index === 'contact'){
+      this.statusAccueil = false;
+      this.statusLogin = false;
+      this.statusProfile = false;
+      this.statusRegister = false;
+      this.statusCreate = false;
+      this.statusAdmin = false;
+      this.statusContact = true;
+      this.statusLogout = false;
+    }
   }
 
 
 
 
-  constructor(public auth: AuthenticationService) {}
+  constructor(public auth: AuthenticationService , private router : Router) {}
   
   
 

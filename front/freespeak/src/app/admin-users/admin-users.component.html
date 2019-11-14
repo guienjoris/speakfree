@@ -1,12 +1,22 @@
 <h2>Gestion des Utilisateurs</h2>
-<ul><li *ngFor="let user of users ">
-    <p>Username: {{user.username}}</p>
-    <p>Usermail: {{user.usermail}}</p>
-    <p>Admin: {{user.isAdmin}}</p>
-    <div *ngIf="!user.isAdmin">
-            <button (click)="updateAdmin(user._id)">Passer Admin</button>
-    </div>
-    <button (click)="delete(user._id)">Supprimer</button>
-    
+<table>
+    <tr>
+        <th>Username</th>
+        <th>Usermail</th>
+        <th>isAdmin</th>
+    </tr>
+    <tr *ngFor="let user of users ">
+        <th>{{user.username}}</th>
+        <th>{{user.usermail}}</th>
+        <th class="isAdmin">{{user.isAdmin}}</th>
+        <th *ngIf="!user.isAdmin"><button mat-button (click)="updateAdmin(user._id)">Passer Admin</button></th>
+        <th><button mat-button (click)="delete(user._id)">Supprimer</button></th>
+    </tr>
+</table>
 
-</li></ul>
+
+
+
+
+
+
