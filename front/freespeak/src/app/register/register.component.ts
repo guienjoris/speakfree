@@ -3,7 +3,9 @@ import { AuthenticationService, TokenPayload } from '../authentication.service';
 import { Router } from '@angular/router';
 
 @Component({
-  templateUrl: './register.component.html'
+  templateUrl: './register.component.html',
+  styleUrls: ['./register.component.scss']
+
 })
 export class RegisterComponent {
   credentials: TokenPayload = {

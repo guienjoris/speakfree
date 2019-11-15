@@ -26,9 +26,14 @@ const postsController= {
   },
     create: (req, res) => { // Créer un Post
         const newPosts = new Posts(Posts.post=req.body);
+        if(req.body.post.length > 10){
         newPosts.save((err, savedPosts) => {
           return respond(err, savedPosts, res);
         });
+        }else{
+          console.log(" Longueur du post inférieur à 10");
+          return respond(err)
+        }
       },
     get: (req, res) => { // Récupérer un Post
         Posts.findById(req.params.id, (err, posts) => {

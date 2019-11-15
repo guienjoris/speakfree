@@ -1,9 +1,11 @@
+<div class="create">
 <h2>Créer un Post</h2>
 <form (submit)="createPostForm()">
     <div class="form-group">
         <mat-form-field>
-        <textarea matInput type="text" class="form-control" name="post" placeholder="Ecrivez votre post ici" [(ngModel)]="credentials.post"></textarea>
+        <textarea matInput rows="10" cols="50" minlength="10"  type="text" class="form-control" name="post" placeholder="Ecrivez votre post ici" [(ngModel)]="credentials.post"></textarea>
     </mat-form-field>
     </div>
     <button mat-button type="submit" class="btn btn-default">Envoyer!</button>
 </form>
+</div>

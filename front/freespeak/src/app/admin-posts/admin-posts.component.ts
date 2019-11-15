@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 export class AdminPostsComponent implements OnInit {
   posts : any = [];
   validate : boolean = true;
+  calculLength : boolean = false;
   constructor(private api: ApiService, private router: Router) { }
 
   validation(id : string){
@@ -32,7 +33,11 @@ export class AdminPostsComponent implements OnInit {
           date: d.date,
           _id: d._id
         })
+        if(d.post.length > 300){
+          this.calculLength = true;
+        }
       }
+      
     })
   }
   
