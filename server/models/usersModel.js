@@ -23,7 +23,6 @@ var userSchema = new mongoose.Schema({
     }
 })
 userSchema.methods.setPassword = (password) =>{
-    // this.salt = crypto.randomBytes(16).toString('hex');
     this.hash = crypto.pbkdf2Sync(password, process.env.DB_SECRET, 1000, 64, 'sha512').toString('hex');
     return this.hash;
 }
