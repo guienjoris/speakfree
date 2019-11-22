@@ -1,17 +1,26 @@
 table{
-    border:2px solid black;
     margin-left: 50%;
     transform:translate(-50%);
 }
 th{
-    border: 1px solid black;
-}
-th{
     font-weight: 300;
 }
+.title{
+    background-color: blanchedalmond;
+    th{
+    font-weight: 400;
+    }
+}
 .isAdmin{
-    font-weight: 500;
+    font-weight: 400;
+}
+button{
+    border: 1px solid black;
+    margin: 1%;
 }
 h2{
     text-align: center;
+}
+.adminuser{
+    height:70%;
 }

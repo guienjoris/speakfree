@@ -21,6 +21,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import {MatListModule} from '@angular/material/list';
 import {MatTableModule} from '@angular/material/table';
+import { FooterComponent } from './footer/footer.component';
 
 
 
@@ -40,7 +41,8 @@ import {MatTableModule} from '@angular/material/table';
     AdminUsersComponent,
     AdminPostsComponent,
     ContactComponent,
-    AdminContactComponent,    
+    AdminContactComponent,
+    FooterComponent,    
   ],
   imports: [
     BrowserModule,
