@@ -1,0 +1,15 @@
+<div class="adminpost">
+    <h2>Posts à valider</h2>
+    <table>
+        <tr>
+            <th>Post</th>
+            <th>Date</th>
+        </tr>
+        <tr *ngFor="let article of posts ">
+            <td [ngClass]= " calculLength === true ? 'overflow' : ''">{{article.post}}</td>
+            <td>{{article.date}}</td>
+            <td><button (click)="delete(article._id)">Supprimer</button></td>
+            
+        </tr>
+    </table>
+    </div>

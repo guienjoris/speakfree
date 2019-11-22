@@ -8,7 +8,7 @@
     </div>
     <div class="form-group">
      <mat-form-field>
-      <input matInput type="email" class="form-control" name="usermail" placeholder="Enter email" [(ngModel)]="credentials.usermail">
+      <input matInput type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" class="form-control" name="usermail" placeholder="Enter email" [(ngModel)]="credentials.usermail">
     </mat-form-field>
     </div>
     <div class="form-group">

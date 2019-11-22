@@ -17,12 +17,12 @@ const postsController= {
     getAllToValidate: (req,res)=>{
         Posts.find({validation:false},(err,posts)=>{
             return respond(err,posts,res);
-        })
+        }).limit(10)
     },
     getAllValidate: (req,res)=>{
       Posts.find({validation:true},(err,posts)=>{
           return respond(err,posts,res);
-      })
+      }).limit(10)
   },
     create: (req, res) => { // Créer un Post
         const newPosts = new Posts(Posts.post=req.body);

@@ -12,6 +12,7 @@ import { AdminUsersComponent } from './admin-users/admin-users.component';
 import { AdminPostsComponent } from './admin-posts/admin-posts.component'
 import { ContactComponent } from './contact/contact.component';
 import { AdminContactComponent } from './admin-contact/admin-contact.component';
+import { AdminPostValideComponent } from './admin-post-valide/admin-post-valide.component';
 
 const routes: Routes = [
   { path: '', component: PostsComponent},
@@ -22,6 +23,7 @@ const routes: Routes = [
   {path: 'create-post', component: CreatePostComponent,canActivate: [AuthGuardService] },
   {path: 'admin/admin-users', component: AdminUsersComponent, canActivate:[AdminGuardService]},
   {path: 'admin/admin-posts',component: AdminPostsComponent, canActivate:[AdminGuardService]},
+  {path: 'admin/admin-post-valide', component: AdminPostValideComponent, canActivate:[AdminGuardService]},
   {path: 'contact', component: ContactComponent},
   {path: 'admin/admin-contact',component: AdminContactComponent, canActivate:[AdminGuardService]}
 
