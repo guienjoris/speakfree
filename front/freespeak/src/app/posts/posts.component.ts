@@ -19,6 +19,7 @@ export class PostsComponent implements OnInit {
         let newDate= new Date(dateString)
         this.posts.push({
           post: d.post,
+          username: d.username,
           date: `Date : ${newDate.getDate()}/${newDate.getMonth()+1}/${newDate.getFullYear()} ${newDate.getHours()}:${newDate.getMinutes()}`
         })
       }

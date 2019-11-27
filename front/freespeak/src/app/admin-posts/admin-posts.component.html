@@ -3,10 +3,12 @@
 <table>
     <tr>
         <th>Post</th>
+        <th>Username</th>
         <th>Date</th>
     </tr>
     <tr *ngFor="let article of posts ">
         <td [ngClass]= " calculLength === true ? 'overflow' : ''">{{article.post}}</td>
+        <td>{{article.username}}</td>
         <td>{{article.date}}</td>
         <td><button (click)="validation(article._id)">Valider</button></td>
         <td><button (click)="delete(article._id)">Supprimer</button></td>

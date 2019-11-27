@@ -12,6 +12,7 @@ const contactUrl = 'http://localhost:3000/contact'
 
 export interface Post {
   post: string
+  username: string
 }
 export interface Contact {
   usermail: string,

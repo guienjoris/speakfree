@@ -25,6 +25,7 @@ export class AdminPostValideComponent implements OnInit {
       for(const d of (data as any)){
         this.posts.push({
           post: d.post,
+          username: d.username,
           date: d.date,
           _id: d._id
         })

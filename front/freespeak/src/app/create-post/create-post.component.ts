@@ -1,6 +1,8 @@
 import { Component} from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiService , Post } from '../service/api.service';
+import { AuthenticationService, UserDetails } from '../authentication.service';
+
 
 @Component({
   selector: 'app-create-post',
@@ -9,10 +11,11 @@ import { ApiService , Post } from '../service/api.service';
 })
 export class CreatePostComponent {
   credentials: Post = {
-    post: ''
+    post: '',
+    username:this.user.getUserDetails().username
   };
   status:boolean = false;
-  constructor(private api: ApiService, private router: Router) { }
+  constructor(private api: ApiService, private router: Router , private user:AuthenticationService) { }
   
   
 
@@ -24,7 +27,7 @@ export class CreatePostComponent {
       this.status=false;
     }
     this.api.createPost(this.credentials).subscribe(() => {
-      this.router.navigateByUrl('/create-post')
+      this.router.navigateByUrl('/')
       
     }, (err) => {
       console.error(err);
