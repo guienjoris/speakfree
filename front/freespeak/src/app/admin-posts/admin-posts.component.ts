@@ -14,11 +14,12 @@ export class AdminPostsComponent implements OnInit {
   constructor(private api: ApiService, private router: Router) { }
 
   validation(id : string){
-    console.log(id)
+    let postsLength = this.posts.length()
     this.api.update(id,this.validate).subscribe(data=>{
       console.log(data)
       location.reload();
     })
+    
   }
   delete(id: string){
     this.api.delete(id).subscribe(data=>{
@@ -40,6 +41,7 @@ export class AdminPostsComponent implements OnInit {
           this.calculLength = true;
         }
       }
+      console.log(this.posts.length)
       
     })
   }
