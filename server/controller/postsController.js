@@ -47,7 +47,11 @@ const postsController= {
       },
     delete: (req, res) => { // Supprimer un Post
         Posts.findOneAndDelete({_id:req.params.id}, (err, posts) => {
+          if(res.status(200)){
           return respond(err, posts, res);
+          }else{
+            return res.send(err)
+          }
         });
       }
 }

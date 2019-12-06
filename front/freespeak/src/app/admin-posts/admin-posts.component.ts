@@ -17,11 +17,13 @@ export class AdminPostsComponent implements OnInit {
     console.log(id)
     this.api.update(id,this.validate).subscribe(data=>{
       console.log(data)
+      location.reload();
     })
   }
   delete(id: string){
     this.api.delete(id).subscribe(data=>{
       console.log(data)
+      location.reload();
     })
   }
   ngOnInit() {

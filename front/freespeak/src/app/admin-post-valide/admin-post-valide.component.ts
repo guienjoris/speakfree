@@ -17,6 +17,7 @@ export class AdminPostValideComponent implements OnInit {
   delete(id: string){
     this.api.delete(id).subscribe(data=>{
       console.log(data)
+      location.reload();
     })
   }
   ngOnInit() {
@@ -33,7 +34,6 @@ export class AdminPostValideComponent implements OnInit {
           this.calculLength = true;
         }
       }
-      
     })
   }
 
