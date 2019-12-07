@@ -11,7 +11,9 @@ const User= mongoose.model('User',user);
 const app = express();
 const port = process.env.PORT || 3000;
 const cors = require('cors');
+var multer = require ('multer');
 
+app.use(express.static('./uploads'))
 app.use(cors());
 mongoose.Promise = global.Promise;
 mongoose.connect(urlmongo, {useNewUrlParser : true, useUnifiedTopology: true, useFindAndModify:false,useCreateIndex:true});
@@ -21,10 +23,8 @@ db.on('error', console.error.bind(console,'connection error'));
 db.once('open', ()=>{
     console.log(`Connecting to MongoDB Atlas on port: ${port}`)
 })
-
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
-
 routes(app);
 app.listen(port);
 var LocalStrategy = require('passport-local').Strategy;
@@ -64,3 +64,4 @@ app.use(function (err, req, res, next) {
 
 
 
+  

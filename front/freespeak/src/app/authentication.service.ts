@@ -10,6 +10,7 @@ export interface UserDetails {
   username: string;
   exp: number;
   iat: number;
+  avatar: string;
   isAdmin: boolean;
 }
 
@@ -52,9 +53,7 @@ export class AuthenticationService {
     let payload;
     if (token) {
       payload = token.split('.')[1];
-
       payload = window.atob(payload);
-
       return JSON.parse(payload);
     } else {
       return null;

@@ -3,12 +3,14 @@ const mongoose= require('mongoose');
 const User= mongoose.model('Users',user);
 var passport= require('passport');
 const regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+
 function respond(err,result,res){
   if(err){
       return res.status(500).json({error:err});
   }
   return res.json(result)
 }
+
 
 module.exports.register = function(req, res) {
   var testRegex = regex.test(req.body.usermail)

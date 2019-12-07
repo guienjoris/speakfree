@@ -23,6 +23,8 @@ import {MatListModule} from '@angular/material/list';
 import {MatTableModule} from '@angular/material/table';
 import { FooterComponent } from './footer/footer.component';
 import { AdminPostValideComponent } from './admin-post-valide/admin-post-valide.component';
+import { FileSelectDirective } from 'ng2-file-upload';
+import { FileUploadModule } from 'ng2-file-upload/file-upload/file-upload.module';
 
 
 
@@ -32,6 +34,7 @@ import { AdminPostValideComponent } from './admin-post-valide/admin-post-valide.
 
 @NgModule({
   declarations: [
+    FileSelectDirective,
     AppComponent,
     PostsComponent,
     LoginComponent,

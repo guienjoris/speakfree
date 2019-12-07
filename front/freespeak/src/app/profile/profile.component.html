@@ -1,5 +1,14 @@
 <div class="profile">
 <div class="form-horizontal">
+  <div>
+    <img src="{{image}}" alt="avatar">
+  </div>
+  <div class="file-upload">
+      <input type="file" name="avatar" ng2FileSelect [uploader]="uploader" accept="image/x-png,image/gif,image/jpeg" />
+      <button type="button" (click)="uploader.uploadAll()" [disabled]="!uploader.getNotUploadedItems().length">
+        Upload
+      </button>
+    </div>
     <div class="form-group">
       <label class="col-sm-3 control-label">Username: </label>
       <p class="form-control-static">{{ auth.getUserDetails()?.username }}</p>

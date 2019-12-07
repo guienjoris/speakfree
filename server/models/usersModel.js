@@ -17,6 +17,10 @@ var userSchema = new mongoose.Schema({
     hash:{
         type: String,
     },
+    avatar:{
+        type:String,
+        default: 'default.png'
+    },
     isAdmin:{
         type:Boolean,
         default: false, 
@@ -38,7 +42,8 @@ userSchema.methods.generateJwt = function() {
     usermail: this.usermail,
     username: this.username,
     exp: parseInt(expiry.getTime() / 1000),
-    isAdmin: this.isAdmin
+    avatar: this.avatar,
+    isAdmin: this.isAdmin,
     }, process.env.DB_SECRET); // DO NOT KEEP YOUR SECRET IN THE CODE!
 };
 module.exports = userSchema;
