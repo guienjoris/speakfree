@@ -47,12 +47,11 @@ export class ApiService {
     const config = { headers: new HttpHeaders().set('Content-Type','application/json') };
     return this.http.post(`http://localhost:3000/users/${id}`,{validate},config)
   }
-  updateAvatar(id:string,file:string){
-    const config = { headers: new HttpHeaders().set('Content-Type','application/json') };
-    return this.http.post(`http://localhost:3000/useravatar/${id}`,{file},config)
-  }
   getAllUsers(){
     return this.http.get(getAllUsersUrl)
+  }
+  getAvatar(id:string){
+    return this.http.get(`http://localhost:3000/useravatar/${id}`)
   }
   createContact(contact:Contact){
     const config = { headers: new HttpHeaders().set('Content-Type','application/json') };

@@ -11,7 +11,7 @@ import { FileUploader } from 'ng2-file-upload';
 export class ProfileComponent implements OnInit {
   details: UserDetails;
   url: string = "http://localhost:3000"
-  image: string = `${this.url}/${this.auth.getUserDetails().avatar}`
+  image: string ;
   public uploader: FileUploader = new FileUploader({
     url: `${this.url}/uploads/${this.auth.getUserDetails()._id}`,
     itemAlias: 'avatar'
@@ -26,5 +26,9 @@ export class ProfileComponent implements OnInit {
   this.uploader.onCompleteItem = (item: any, status: any) => {
     console.log('Uploaded File Details:', item);
   }
+  return this.api.getAvatar(this.auth.getUserDetails()._id).subscribe((data)=>{
+    console.log(data[0].avatar)
+    this.image= `${this.url}/${data[0].avatar}`
+  });
 }
 }

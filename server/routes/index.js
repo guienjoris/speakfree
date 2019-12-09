@@ -43,6 +43,7 @@ module.exports = (app) => {
     app.route('/register').post(authController.register);
     app.route('/login').post(authController.login);
     app.route('/profile').get(authController.profileRead);
+    app.route('/useravatar/:id').get(authController.userAvatar);
     app.route('/admin');
     app.route('/adminusers').get(authController.getAll);
     app.route('/users/:id').delete(authController.delete);

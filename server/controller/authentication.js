@@ -106,5 +106,11 @@ module.exports.admin = function(req,res){
       return respond(err, users, res);
     });
   }
+  module.exports.userAvatar= function (req,res){
+    User.find({_id:req.params.id}, (err,user)=>{
+      console.log(user)
+      return respond(err,user,res)
+    })
+  }
   
 
