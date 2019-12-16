@@ -23,6 +23,7 @@ export class PostsComponent implements OnInit {
           date: `Date : ${newDate.getDate()}/${newDate.getMonth()+1}/${newDate.getFullYear()} ${newDate.getHours()}:${newDate.getMinutes()}`
         })
       }
+      this.posts.reverse()
     })
   }
 
