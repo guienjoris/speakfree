@@ -27,6 +27,7 @@ export class CreatePostComponent {
       this.status=false;
     }
     this.api.createPost(this.credentials).subscribe(() => {
+      alert("post crée avec succès,envoyé en validation")
       this.router.navigateByUrl('/')
       
     }, (err) => {

@@ -21,7 +21,6 @@ import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import {MatListModule} from '@angular/material/list';
 import {MatTableModule} from '@angular/material/table';
-import { FooterComponent } from './footer/footer.component';
 import { AdminPostValideComponent } from './admin-post-valide/admin-post-valide.component';
 import { FileSelectDirective } from 'ng2-file-upload';
 import { FileUploadModule } from 'ng2-file-upload/file-upload/file-upload.module';
@@ -46,7 +45,6 @@ import { FileUploadModule } from 'ng2-file-upload/file-upload/file-upload.module
     AdminPostsComponent,
     ContactComponent,
     AdminContactComponent,
-    FooterComponent,
     AdminPostValideComponent,    
   ],
   imports: [

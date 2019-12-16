@@ -14,7 +14,6 @@ export class AdminPostsComponent implements OnInit {
   constructor(private api: ApiService, private router: Router) { }
 
   validation(id : string){
-    let postsLength = this.posts.length()
     this.api.update(id,this.validate).subscribe(data=>{
       console.log(data)
       location.reload();

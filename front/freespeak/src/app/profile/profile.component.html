@@ -9,6 +9,9 @@
         Upload
       </button>
     </div>
+    <div *ngIf="message">
+      <p>Upload réalisé avec succès! Veuillez actualiser la page pour voir le changement!</p>
+    </div>
     <div class="form-group">
       <label class="col-sm-3 control-label">Username: </label>
       <p class="form-control-static">{{ auth.getUserDetails()?.username }}</p>
