@@ -13,7 +13,7 @@ export class LoginComponent {
     usermail: '',
     password: ''
   };
-
+  message: string;
   constructor(private auth: AuthenticationService, private router: Router) {}
 
   login() {
@@ -24,6 +24,7 @@ export class LoginComponent {
         this.router.navigateByUrl('/admin')
       }
     }, (err) => {
+      this.message = err.error.message
       console.error(err);
     });
   }

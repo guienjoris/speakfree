@@ -2,6 +2,7 @@
 var dotenv = require('dotenv').config({path: './private.env'});
 var urlmongo = process.env.DB_HOST;
 var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
@@ -27,7 +28,6 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 routes(app);
 app.listen(port);
-var LocalStrategy = require('passport-local').Strategy;
 app.use(passport.initialize());
 
 passport.use(new LocalStrategy({

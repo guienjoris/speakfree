@@ -39,7 +39,6 @@ module.exports.login = function(req, res) {
     // If Passport throws/catches an error
     if (err) {
       res.status(404).json(err);
-      return;
     }
 
     // If a user is found

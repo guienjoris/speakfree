@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 var crypto = require('crypto');
 var jwt = require('jsonwebtoken');
+var dotenv = require('dotenv').config({path: './private.env'});
+
 
 
 
@@ -32,7 +34,7 @@ userSchema.methods.setPassword = (password) =>{
 }
 userSchema.methods.validPassword = (password)=> {
     var hash = crypto.pbkdf2Sync(password, process.env.DB_SECRET, 1000, 64, 'sha512').toString('hex');
-    return this.hash = hash;
+    return this.hash === hash;
 };
 userSchema.methods.generateJwt = function() {
     var expiry = new Date();
