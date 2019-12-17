@@ -3,9 +3,6 @@ var crypto = require('crypto');
 var jwt = require('jsonwebtoken');
 var dotenv = require('dotenv').config({path: './private.env'});
 
-
-
-
 var userSchema = new mongoose.Schema({
     username:{
         type:String,

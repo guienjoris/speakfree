@@ -14,6 +14,8 @@ const port = process.env.PORT || 3000;
 const cors = require('cors');
 var multer = require ('multer');
 
+app.use(passport.initialize());
+
 app.use(express.static('./uploads'))
 app.use(cors());
 mongoose.Promise = global.Promise;
@@ -28,7 +30,6 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 routes(app);
 app.listen(port);
-app.use(passport.initialize());
 
 passport.use(new LocalStrategy({
     usernameField: 'usermail'
