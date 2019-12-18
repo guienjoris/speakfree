@@ -19,7 +19,7 @@ module.exports.register = function(req, res) {
   user.username = req.body.username;
   user.usermail = req.body.usermail;
 
-  user.hash = user.setPassword(req.body.password);
+  user.setPassword(req.body.password);
 
   user.save(function(err) {
     var token;

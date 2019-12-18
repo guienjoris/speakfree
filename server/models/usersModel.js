@@ -16,6 +16,9 @@ var userSchema = new mongoose.Schema({
     hash:{
         type: String,
     },
+    salt:{
+        type:String
+    },
     avatar:{
         type:String,
         default: 'default.png'
@@ -25,12 +28,12 @@ var userSchema = new mongoose.Schema({
         default: false, 
     }
 })
-userSchema.methods.setPassword = (password) =>{
-    this.hash = crypto.pbkdf2Sync(password, process.env.DB_SECRET, 1000, 64, 'sha512').toString('hex');
-    return this.hash;
+userSchema.methods.setPassword = function(password){
+    this.salt = crypto.randomBytes(16).toString('hex');
+    this.hash = crypto.pbkdf2Sync(password,this.salt, 1000, 64, 'sha512').toString('hex');
 }
-userSchema.methods.validPassword = (password)=> {
-    var hash = crypto.pbkdf2Sync(password, process.env.DB_SECRET, 1000, 64, 'sha512').toString('hex');
+userSchema.methods.validPassword = function(password){
+    var hash = crypto.pbkdf2Sync(password, this.salt, 1000, 64, 'sha512').toString('hex');
     return this.hash === hash;
 };
 userSchema.methods.generateJwt = function() {
@@ -43,6 +46,6 @@ userSchema.methods.generateJwt = function() {
     exp: parseInt(expiry.getTime() / 1000),
     avatar: this.avatar,
     isAdmin: this.isAdmin,
-    }, process.env.DB_SECRET); // DO NOT KEEP YOUR SECRET IN THE CODE!
+    }, process.env.DB_SECRET); 
 };
 module.exports = userSchema;
