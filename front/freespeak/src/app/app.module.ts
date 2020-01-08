@@ -24,6 +24,7 @@ import {MatTableModule} from '@angular/material/table';
 import { AdminPostValideComponent } from './admin-post-valide/admin-post-valide.component';
 import { FileSelectDirective } from 'ng2-file-upload';
 import { FileUploadModule } from 'ng2-file-upload/file-upload/file-upload.module';
+import { PosttalkComponent } from './posttalk/posttalk.component';
 
 
 
@@ -45,7 +46,8 @@ import { FileUploadModule } from 'ng2-file-upload/file-upload/file-upload.module
     AdminPostsComponent,
     ContactComponent,
     AdminContactComponent,
-    AdminPostValideComponent,    
+    AdminPostValideComponent,
+    PosttalkComponent,    
   ],
   imports: [
     BrowserModule,

@@ -13,6 +13,7 @@ import { AdminPostsComponent } from './admin-posts/admin-posts.component'
 import { ContactComponent } from './contact/contact.component';
 import { AdminContactComponent } from './admin-contact/admin-contact.component';
 import { AdminPostValideComponent } from './admin-post-valide/admin-post-valide.component';
+import { PosttalkComponent } from './posttalk/posttalk.component';
 
 const routes: Routes = [
   { path: '', component: PostsComponent},
@@ -25,7 +26,8 @@ const routes: Routes = [
   {path: 'admin/admin-posts',component: AdminPostsComponent, canActivate:[AdminGuardService]},
   {path: 'admin/admin-post-valide', component: AdminPostValideComponent, canActivate:[AdminGuardService]},
   {path: 'contact', component: ContactComponent},
-  {path: 'admin/admin-contact',component: AdminContactComponent, canActivate:[AdminGuardService]}
+  {path: 'admin/admin-contact',component: AdminContactComponent, canActivate:[AdminGuardService]},
+  {path: 'posttalk/:id', component: PosttalkComponent}
 
 ];
 

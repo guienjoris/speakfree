@@ -25,7 +25,7 @@ const postsController= {
       }).limit(10)
   },
     create: (req, res) => { // Créer un Post
-        const newPosts = new Posts({post:req.body.post,username:req.body.username});
+        const newPosts = new Posts({titlepost:req.body.titlepost,post:req.body.post,username:req.body.username, userId: req.body.userId});
         if(req.body.post.length > 10){
         newPosts.save((err, savedPosts) => {
           return respond(err, savedPosts, res);

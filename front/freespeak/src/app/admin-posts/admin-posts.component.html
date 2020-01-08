@@ -2,16 +2,18 @@
 <h2>Posts à valider</h2>
 <table>
     <tr>
+        <th>Title </th>
         <th>Post</th>
         <th>Username</th>
         <th>Date</th>
     </tr>
     <tr *ngFor="let article of posts ">
-        <td [ngClass]= " calculLength === true ? 'overflow' : ''">{{article.post}}</td>
-        <td>{{article.username}}</td>
-        <td>{{article.date}}</td>
-        <td><button (click)="validation(article._id)">Valider</button></td>
-        <td><button (click)="delete(article._id)">Supprimer</button></td>
+        <td><div class="article">{{article.titlepost}}</div></td>
+        <td ><div class="article" >{{article.post}}</div></td>
+        <td><div class="article">{{article.username}}</div></td>
+        <td><div class="article">{{article.date}}</div></td>
+        <td class="button"><button (click)="validation(article._id)">Valider</button></td>
+        <td class="button"><button (click)="delete(article._id)">Supprimer</button></td>
         
     </tr>
 </table>

@@ -11,8 +11,10 @@ const getAllUsersUrl = 'http://localhost:3000/adminusers'
 const contactUrl = 'http://localhost:3000/contact'
 
 export interface Post {
+  titlepost: string
   post: string
   username: string
+  userId: string
 }
 export interface Contact {
   usermail: string,
@@ -23,6 +25,9 @@ export interface Contact {
 })
 export class ApiService {
   constructor( private http: HttpClient) {}
+  getPost(id:string){
+    return this.http.get(`http://localhost:3000/posts/${id}`)
+  }
   getPostsValidate(){
     return this.http.get(ValidePostsUrl)
   }

@@ -11,13 +11,14 @@ import { AuthenticationService, UserDetails } from '../authentication.service';
 })
 export class CreatePostComponent {
   credentials: Post = {
+    titlepost:'',
     post: '',
-    username:this.user.getUserDetails().username
+    username:this.user.getUserDetails().username,
+    userId: this.user.getUserDetails()._id
   };
+  error: string;
   status:boolean = false;
   constructor(private api: ApiService, private router: Router , private user:AuthenticationService) { }
-  
-  
 
   createPostForm(){
     if(this.credentials.post.length < 10){
@@ -32,6 +33,7 @@ export class CreatePostComponent {
       
     }, (err) => {
       console.error(err);
+      this.error = err.error.error.message;
     });
   }
   }

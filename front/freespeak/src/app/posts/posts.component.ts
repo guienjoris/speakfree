@@ -18,9 +18,10 @@ export class PostsComponent implements OnInit {
         let dateString= d.date;
         let newDate= new Date(dateString)
         this.posts.push({
-          post: d.post,
+          id: d._id,
+          titlepost: d.titlepost,
           username: d.username,
-          date: `Date : ${newDate.getDate()}/${newDate.getMonth()+1}/${newDate.getFullYear()} ${newDate.getHours()}:${newDate.getMinutes()}`
+          date: `Date : ${newDate.getDate()}/${newDate.getMonth()+1}/${newDate.getFullYear()} `
         })
       }
       this.posts.reverse()

@@ -1,8 +1,19 @@
 <h2>Posts</h2>
+<ul class="ex">
+    <li><h3>Titre</h3></li>
+    <li><h3>Créateur</h3></li>
+    <li><h3>Date de création</h3></li>
+</ul>
 <ul><li *ngFor="let article of posts ">
     <div class="post">
-    <p class="article">{{article.post}}</p>
+    <a routerLink="/posttalk/{{article.id}}">
+        <div class="container">
+    <p class="titlepost">{{article.titlepost}}</p>
     <p class="username">{{article.username}}</p>
     <p class="date">{{article.date }}</p>
+    <p>Voir le débat</p>
+</div>
+</a>
+
     </div>
 </li></ul>

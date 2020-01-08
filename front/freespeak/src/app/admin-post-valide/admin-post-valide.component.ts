@@ -10,7 +10,6 @@ import { Router } from '@angular/router';
 export class AdminPostValideComponent implements OnInit {
 
   posts : any = [];
-  calculLength : boolean = false;
   constructor(private api: ApiService, private router: Router) { }
 
   
@@ -26,13 +25,11 @@ export class AdminPostValideComponent implements OnInit {
       for(const d of (data as any)){
         this.posts.push({
           post: d.post,
+          titlepost: d.titlepost,
           username: d.username,
           date: d.date,
           _id: d._id
         })
-        if(d.post.length > 300){
-          this.calculLength = true;
-        }
       }
     })
   }
