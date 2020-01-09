@@ -70,7 +70,9 @@ module.exports = (app) => {
     //Route pour contact
     app.route('/contact').get(contactController.getAll);
     app.route('/contact').post(contactController.createContact);
-    app.route('/contact/:id').delete(contactController.delete)
+    app.route('/contact/:id').delete(contactController.delete);
+    //Route pour les Comments
+    app.route('/comments/:id').post(postsController.addAnswer);
 
   app.use((req, res) => { // Middleware pour capturer une requête qui ne match aucune des routes définies plus tôt
     res.status(404).json({url: req.originalUrl, error: ' not found'});

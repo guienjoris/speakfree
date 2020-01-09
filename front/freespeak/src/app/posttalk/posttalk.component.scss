@@ -25,4 +25,18 @@
 }
 img{
     width:150px;
+    border-radius: 40%;
+}
+.answerInput{
+    text-align:center;
+}
+.answer{
+    display:flex;
+}
+.right{
+    justify-content: flex-start;
+    flex-direction: row-reverse;
+}
+.left{
+    justify-content: flex-start;
 }

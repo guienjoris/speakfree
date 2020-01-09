@@ -53,7 +53,12 @@ const postsController= {
             return res.send(err)
           }
         });
-      }
+      },
+    addAnswer: (req ,res)=>{
+      Posts.findOneAndUpdate({_id: req.params.id}, {$push:{comments:[{userId: req.body.userId,username: req.body.username, avatar: req.body.avatar, answerInput: req.body.answerInput}]}},(err,answers)=>{
+        return respond(err, answers, res)
+      })
+    },
 }
 
 module.exports= postsController;

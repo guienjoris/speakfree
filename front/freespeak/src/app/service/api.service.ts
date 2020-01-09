@@ -16,6 +16,12 @@ export interface Post {
   username: string
   userId: string
 }
+export interface Comment{
+  answerInput: string
+  username: string
+  userId: string
+  avatar: string
+}
 export interface Contact {
   usermail: string,
   message: string
@@ -34,6 +40,10 @@ export class ApiService {
   createPost(post: Post){
     const config = { headers: new HttpHeaders().set('Content-Type','application/json') };
     return this.http.post( CreatePostUrl,post, config );
+  }
+  createComment (id:string, comment: Comment){
+    const config = { headers: new HttpHeaders().set('Content-Type','application/json')};
+    return this.http.post(`http://localhost:3000/comments/${id}`,comment, config)
   }
   getPostsToValidate(){
     return this.http.get(ToValidePostsUrl)

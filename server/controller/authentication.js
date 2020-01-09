@@ -107,7 +107,6 @@ module.exports.admin = function(req,res){
   }
   module.exports.userAvatar= function (req,res){
     User.find({_id:req.params.id}, (err,user)=>{
-      console.log(user)
       return respond(err,user,res)
     })
   }

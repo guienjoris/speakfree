@@ -4,4 +4,20 @@
     <p class="date ">{{date}}</p>
     <p class="originPost">{{post}}</p>
     <p class="username">{{username}}</p>
+    <button mat-button *ngIf="user.isLoggedIn()" (click)="answerFunction()"><span *ngIf="inputStatus===false">Répondre</span><span *ngIf="inputStatus===true">Annuler</span></button>
+</div>
+<div class="answerInput" *ngIf="inputStatus">
+    <form (submit)="createCommentForm()">
+    <mat-form-field>
+        <textarea matInput rows="10" cols="50" minlength="10" type="text" name="answerInput" placeholder="Votre réponse" [(ngModel)]="credentials.answerInput"></textarea>
+    </mat-form-field>
+    <button type="submit" mat-button>Envoyer</button>
+</form>
+</div>
+<div *ngFor="let answers of comments">
+    <div [ngClass]="answers.userId != this.userId ? 'right':'left'" class="answer">
+        <img src="http://localhost:3000/{{answers.avatar}}" alt="avatar">
+        <p>{{answers.answerInput}}</p>
+        <p>{{answers.username}}</p>
+    </div>
 </div>

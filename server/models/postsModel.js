@@ -6,7 +6,13 @@ const postSchema = new mongoose.Schema({
     username:{type: String},
     userId: {type: String},
     validation:{type:Boolean, default: false},
-    date: { type: Date, default: Date.now }
+    date: { type: Date, default: Date.now },
+    comments:[{
+        userId: String,
+        username: String,
+        avatar: String,
+        answerInput: String
+    }]
 })
 
 module.exports = postSchema;
