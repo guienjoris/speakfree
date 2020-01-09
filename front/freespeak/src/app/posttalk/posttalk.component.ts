@@ -11,16 +11,17 @@ import { AuthenticationService, UserDetails } from '../authentication.service';
   styleUrls: ['./posttalk.component.scss']
 })
 export class PosttalkComponent implements OnInit {
-
   credentials: Comment ={
     answerInput: '',
-    username: this.user.getUserDetails().username,
+    username: this.user.getUserDetails().username ,
     userId: this.user.getUserDetails()._id,
     avatar: this.user.getUserDetails().avatar
   }
 
+
   private routeSub : Subscription
   constructor(private api: ApiService, private route: ActivatedRoute, private user: AuthenticationService, private router: Router) { 
+    
   }
   id: string;
   titlepost:string;

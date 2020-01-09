@@ -1,13 +1,18 @@
-import { Component, OnChanges } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from './authentication.service';
-import { Router } from '@angular/router'
+import { Router } from '@angular/router';
+import {ActivatedRoute} from '@angular/router';
+import { Subscription } from 'rxjs';
+
+
+
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'Speak Free';
   statusAccueil = false;
   statusLogin = false;
@@ -17,7 +22,15 @@ export class AppComponent {
   statusAdmin = false;
   statusContact = false;
   statusLogout = false;
+  
+  constructor(public auth: AuthenticationService , private router : Router,private route: ActivatedRoute) {
 
+  }
+  private routeSub : Subscription
+
+  ngOnInit(){
+
+  }
   change(index){
     if(index=== 'accueil'){
       this.statusAccueil = true;
@@ -110,12 +123,6 @@ export class AppComponent {
       this.statusLogout = false;
     }
   }
-
-
-
-
-  constructor(public auth: AuthenticationService , private router : Router) {}
-  
   
 
 }

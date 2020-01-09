@@ -27,7 +27,7 @@ const routes: Routes = [
   {path: 'admin/admin-post-valide', component: AdminPostValideComponent, canActivate:[AdminGuardService]},
   {path: 'contact', component: ContactComponent},
   {path: 'admin/admin-contact',component: AdminContactComponent, canActivate:[AdminGuardService]},
-  {path: 'posttalk/:id', component: PosttalkComponent}
+  {path: 'posttalk/:id', component: PosttalkComponent,canActivate: [AuthGuardService]}
 
 ];
 
