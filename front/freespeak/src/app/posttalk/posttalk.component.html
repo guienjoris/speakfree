@@ -15,7 +15,7 @@
 </form>
 </div>
 <div *ngFor="let answers of comments">
-    <div [ngClass]="answers.userId != this.userId ? 'right':'left'" class="answer">
+    <div [ngClass]="answers.commentuserId != this.userId ? 'right':'left'" class="answer">
         <img src="http://localhost:3000/{{answers.avatar}}" alt="avatar">
         <p>{{answers.answerInput}}</p>
         <p>{{answers.username}}</p>

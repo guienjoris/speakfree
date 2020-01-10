@@ -46,21 +46,20 @@ export class PosttalkComponent implements OnInit {
       this.username = data.username;
       this.date= data.date;
       this.userId = data.userId;
-      console.log(this.userId)
       for( let d of ( data.comments as any)){
         this.comments.push({
         answerInput: d.answerInput,
         username: d.username,
         avatar: d.avatar,
-        userId: d.userId
+        commentuserId: d.userId
+        })
+        this.api.getAvatar(d.userId).subscribe((data : any)=>{
+          this.avatar = "http://localhost:3000/" + data[0].avatar
         })
       }
       this.comments.reverse();
       
-      this.api.getAvatar(this.userId).subscribe((data : any)=>{
-        this.avatar = "http://localhost:3000/" + data[0].avatar
-        console.log(this.avatar)
-      })
+      
     })
 
   }

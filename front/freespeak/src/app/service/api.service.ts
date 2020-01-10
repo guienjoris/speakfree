@@ -20,7 +20,7 @@ export interface Comment{
   answerInput: string
   username: string
   userId: string
-  avatar: string
+  avatar: any
 }
 export interface Contact {
   usermail: string,

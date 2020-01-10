@@ -14,5 +14,5 @@ const postSchema = new mongoose.Schema({
         answerInput: String
     }]
 })
-
+// Comment is embedded
 module.exports = postSchema;

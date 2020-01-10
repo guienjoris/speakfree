@@ -7,8 +7,6 @@ const mongoose= require('mongoose');
 const user = require('../models/usersModel');
 const User= mongoose.model('Users',user);
 
-
-
 var jwt = require('express-jwt');
 var auth = jwt({
   secret: process.env.DB_SECRET,
@@ -30,6 +28,7 @@ function respond(err,result,res){
   }
   return res.json(result)
 }
+
 module.exports = (app) => {
     //Route pour les posts
     app.route('/posts').get(postsController.getAll);

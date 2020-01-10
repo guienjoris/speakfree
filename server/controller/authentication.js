@@ -31,6 +31,7 @@ module.exports.register = function(req, res) {
   });
 }
 };
+
 module.exports.login = function(req, res) {
 
   passport.authenticate('local', function(err, user, info){
@@ -53,8 +54,8 @@ module.exports.login = function(req, res) {
       res.status(401).json(info);
     }
   })(req, res);
-
 };
+
 module.exports.profileRead = function(req, res) {
   // If no user ID exists in the JWT return a 401
   if (!req.payload._id) {
@@ -70,6 +71,7 @@ module.exports.profileRead = function(req, res) {
       });
   }
 };
+
 module.exports.admin = function(req,res){
   if (!req.payload._id) {
     res.status(401).json({
@@ -89,22 +91,26 @@ module.exports.admin = function(req,res){
     });
     }
   }
+
   module.exports.updateAdmin = function(req,res){
     User.findOneAndUpdate({_id :req.params.id},{$set:{isAdmin:req.body.validate}},(err,user)=>{
       return respond(err,user,res);
     })
   }
+
   module.exports.getAll = function(req,res){
    // Récupérer tous les Users
       User.find({}, (err, users) => {
           return respond(err, users, res);
       });
   }
+
   module.exports.delete = function(req,res){
     User.findOneAndDelete(req.params.id, (err, users) => {
       return respond(err, users, res);
     });
   }
+  
   module.exports.userAvatar= function (req,res){
     User.find({_id:req.params.id}, (err,user)=>{
       return respond(err,user,res)

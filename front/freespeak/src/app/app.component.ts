@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from './authentication.service';
-import { Router } from '@angular/router';
 import {ActivatedRoute} from '@angular/router';
 import { Subscription } from 'rxjs';
 
@@ -23,13 +22,11 @@ export class AppComponent implements OnInit {
   statusContact = false;
   statusLogout = false;
   
-  constructor(public auth: AuthenticationService , private router : Router,private route: ActivatedRoute) {
-
+  constructor(public auth: AuthenticationService, private route: ActivatedRoute) {
+    console.log(route.snapshot['url'])
   }
-  private routeSub : Subscription
 
   ngOnInit(){
-
   }
   change(index){
     if(index=== 'accueil'){
