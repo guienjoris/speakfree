@@ -1,5 +1,5 @@
 <div class="post">
-    <img src="{{avatar}}" alt="avatar">
+    <img src="{{avatarPost}}" alt="avatar">
     <h3 class="title">{{titlepost}}</h3>
     <p class="date ">{{date}}</p>
     <p class="originPost">{{post}}</p>
@@ -16,7 +16,7 @@
 </div>
 <div *ngFor="let answers of comments">
     <div [ngClass]="answers.commentuserId != this.userId ? 'right':'left'" class="answer">
-        <img src="http://localhost:3000/{{answers.avatar}}" alt="avatar">
+        <img src="{{answers.avatarAnswer}}" alt="avatar">
         <p>{{answers.answerInput}}</p>
         <p>{{answers.username}}</p>
     </div>

@@ -29,7 +29,7 @@ export class PosttalkComponent implements OnInit {
   username: string;
   date: string;
   userId: string;
-  avatar: string;
+  avatarPost: any ;
   inputStatus: boolean = false;
   comments: any = [];
 
@@ -40,28 +40,38 @@ export class PosttalkComponent implements OnInit {
       this.id = params['id']
     });
     this.api.getPost(this.id).subscribe((data : any)  => { 
-      console.log(data)
       this.titlepost= data.titlepost;
       this.post= data.post;
       this.username = data.username;
       this.date= data.date;
       this.userId = data.userId;
+      this.avatarPost = this.getAvatarPost(data.userId);
       for( let d of ( data.comments as any)){
         this.comments.push({
         answerInput: d.answerInput,
         username: d.username,
-        avatar: d.avatar,
+        avatarAnswer: this.getAvatarAnswer(d.userId, this.comments.length),
         commentuserId: d.userId
         })
-        this.api.getAvatar(d.userId).subscribe((data : any)=>{
-          this.avatar = "http://localhost:3000/" + data[0].avatar
-        })
+        
+        
       }
-      this.comments.reverse();
+        // this.comments.reverse();
       
       
     })
 
+  }
+  getAvatarPost(id:string){
+    this.api.getAvatar(id).subscribe((data : any)=>{
+      this.avatarPost= "http://localhost:3000/" + data[0].avatar;
+    })
+  }
+  getAvatarAnswer(id:string,index:number){
+    this.api.getAvatar(id).subscribe((data : any)=>{
+      console.log(this.comments)
+      this.comments[index].avatarAnswer= "http://localhost:3000/" + data[0].avatar;
+    })
   }
   answerFunction(){
     if(this.inputStatus=== true){
@@ -71,7 +81,6 @@ export class PosttalkComponent implements OnInit {
     }
   }
   createCommentForm(){
-    console.log(this.credentials)
     this.api.createComment(this.id,this.credentials).subscribe(()=>{
       this.ngOnInit();
     })
