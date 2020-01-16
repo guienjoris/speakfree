@@ -27,11 +27,20 @@ img{
     width:150px;
     border-radius: 40%;
 }
+.avatarTalk{
+    width:50px;
+}
 .answerInput{
     text-align:center;
 }
 .answer{
     display:flex;
+    border: 1px solid black;
+    margin:1%;
+    padding:1%;
+}
+.answerUser{
+    margin:1%;
 }
 .right{
     justify-content: flex-start;

@@ -16,8 +16,9 @@
 </div>
 <div *ngFor="let answers of comments">
     <div [ngClass]="answers.commentuserId != this.userId ? 'right':'left'" class="answer">
-        <img src="{{answers.avatarAnswer}}" alt="avatar">
-        <p>{{answers.answerInput}}</p>
-        <p>{{answers.username}}</p>
+        <img src="{{answers.avatarAnswer}}" class="avatarTalk" alt="avatar">
+        <p class="username">{{answers.username}}</p>
+        <p class="answerUser">{{answers.answerInput}}</p>
     </div>
 </div>
+
