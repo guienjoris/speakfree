@@ -9,8 +9,9 @@ import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
+
 export class AppComponent implements OnInit {
   title = 'Speak Free';
   statusAccueil = false;
@@ -21,7 +22,7 @@ export class AppComponent implements OnInit {
   statusAdmin = false;
   statusContact = false;
   statusLogout = false;
-  
+    
   constructor(public auth: AuthenticationService, private route: ActivatedRoute) {
     console.log(route.snapshot['url'])
   }

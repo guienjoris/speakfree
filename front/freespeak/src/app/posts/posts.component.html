@@ -1,19 +1,16 @@
 <h2>Posts</h2>
-<ul class="ex">
-    <li><h3>Titre</h3></li>
-    <li><h3>Créateur</h3></li>
-    <li><h3>Date de création</h3></li>
-</ul>
-<ul><li *ngFor="let article of posts ">
-    <div class="post">
-    <a  routerLink="/posttalk/{{article.id}}">
-        <div class="container">
-    <p class="titlepost">{{article.titlepost}}</p>
-    <p class="username">{{article.username}}</p>
-    <p class="date">{{article.date }}</p>
-    <p>Voir le débat</p>
+<div class="container">
+<table>
+    <tr>
+        <th>Titre du post </th>
+        <th>Username</th>
+        <th>Date</th>
+    </tr>
+    <tr *ngFor="let article of posts ">
+        <td><div class="titlepost"><a routerLink="/posttalk/{{article.id}}">{{article.titlepost}}</a></div></td>
+        <td><div class="username">{{article.username}}</div></td>
+        <td><div class="date">{{article.date}}</div></td>
+        <td><button mat-button ><a  routerLink="/posttalk/{{article.id}}">Voir le débat</a></button></td>
+    </tr>
+</table>
 </div>
-</a>
-
-    </div>
-</li></ul>

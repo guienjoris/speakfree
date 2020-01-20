@@ -32,10 +32,21 @@ ul{
             border-bottom: 2px solid blue;
         }
     }
-    .orange{
-        color:orange;
-    }
-    .white{
-        color:white;
+    
+    .menuResponsive{
+        display:none;
+        justify-content: flex-end;
+        width:100%;
     }
 }
+@media screen and (max-width: 1500px) {
+    .nav{
+        display:none;
+    }
+    .menuResponsive{
+        display:flex;
+        justify-content: flex-end;
+        width:100%;
+    }
+    
+  }

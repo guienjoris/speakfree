@@ -1,12 +1,18 @@
 <div class="contact">
     <h2>Me contacter</h2>
         <form (submit)="contact()" >
-                <mat-form-field>
+                <mat-form-field class="title">
                     <input matInput type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" placeholder="Email" name="email" [(ngModel)]="credentials.usermail">
                 </mat-form-field>
                 <div>
-                    <mat-form-field>
-                    <textarea matInput type="text"  placeholder="Message ..." name="message" [(ngModel)]="credentials.message"></textarea>
+                    <mat-form-field class='textarea'>
+                    <textarea cdkTextareaAutosize
+                    cdkAutosizeMinRows="10"
+                    cdkAutosizeMaxRows="25"
+                    matInput type="text"  
+                    placeholder="Message ..." 
+                    name="message" 
+                    [(ngModel)]="credentials.message"></textarea>
                     </mat-form-field>
                 </div>
             <button mat-button> Envoyer </button>

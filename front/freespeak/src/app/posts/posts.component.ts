@@ -21,7 +21,7 @@ export class PostsComponent implements OnInit {
           id: d._id,
           titlepost: d.titlepost,
           username: d.username,
-          date: `Date : ${newDate.getDate()}/${newDate.getMonth()+1}/${newDate.getFullYear()} `
+          date: `${newDate.getDate()}/${newDate.getMonth()+1}/${newDate.getFullYear()} `
         })
       }
       this.posts.reverse()
