@@ -6,7 +6,13 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+body{
+    background-color: rgba(0,0,0,0.5);
 
+    background-image: url("./assets/924491.jpg");
+    background-attachment: center;
+    background-size: cover;
+}
 .menuButton{
     color:#223a46;
 }
@@ -16,9 +22,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
         color:black;
     }
 }
+
 @media screen and (max-width: 1500px) {
     .menuButton{
         color:white;
     }
-    
-  }
+}

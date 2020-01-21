@@ -1,16 +1,18 @@
+<div class="containerGlobal">
 <h2>Posts</h2>
-<div class="container">
+<div class="container" class="containerPost">
 <table>
     <tr>
         <th>Titre du post </th>
         <th>Username</th>
         <th>Date</th>
     </tr>
-    <tr *ngFor="let article of posts ">
+    <tr *ngFor="let article of posts " >
         <td><div class="titlepost"><a routerLink="/posttalk/{{article.id}}">{{article.titlepost}}</a></div></td>
         <td><div class="username">{{article.username}}</div></td>
         <td><div class="date">{{article.date}}</div></td>
         <td><button mat-button ><a  routerLink="/posttalk/{{article.id}}">Voir le débat</a></button></td>
     </tr>
 </table>
+</div>
 </div>

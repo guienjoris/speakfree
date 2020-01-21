@@ -14,9 +14,7 @@
   <div class="menuResponsive">
     <button mat-button [matMenuTriggerFor]="menu" class="menuButton" >Menu</button>
     <mat-menu #menu="matMenu" class="menu">
-      <button mat-menu-item><a routerLink="/accueil" 
-        (click)="change('accueil')"
-         >Accueil</a></button>
+      <button mat-menu-item><a routerLink="/accueil" routerLinkActive="orange">Accueil</a></button>
       <button mat-menu-item *ngIf="!auth.isLoggedIn()"><a routerLink="/register" routerLinkActive="orange">S'enregistrer</a></button>
       <button mat-menu-item *ngIf="!auth.isLoggedIn()"><a routerLink="/login" routerLinkActive="orange"> Se connecter</a></button>
         <button mat-menu-item *ngIf="auth.isLoggedIn()" ><a  routerLink="/profile" routerLinkActive="orange" >{{ auth.getUserDetails()?.username }}</a></button>
