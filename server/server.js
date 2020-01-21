@@ -19,7 +19,12 @@ app.use(passport.initialize());
 app.use(express.static('./uploads'))
 app.use(cors());
 mongoose.Promise = global.Promise;
-mongoose.connect(urlmongo, {useNewUrlParser : true, useUnifiedTopology: true, useFindAndModify:false,useCreateIndex:true});
+mongoose.connect(urlmongo, {
+    useNewUrlParser : true, 
+    useUnifiedTopology: true, 
+    useFindAndModify:false,
+    useCreateIndex:true
+});
 
 var db = mongoose.connection;
 db.on('error', console.error.bind(console,'connection error'));
