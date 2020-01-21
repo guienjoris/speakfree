@@ -16,7 +16,7 @@ import { AdminPostValideComponent } from './admin-post-valide/admin-post-valide.
 import { PosttalkComponent } from './posttalk/posttalk.component';
 
 const routes: Routes = [
-  { path: '', component: PostsComponent},
+  { path: 'accueil', component: PostsComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component : RegisterComponent},
   {path: 'profile', component: ProfileComponent, canActivate: [AuthGuardService] },

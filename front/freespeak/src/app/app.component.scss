@@ -9,6 +9,9 @@
 img{
     width:85%;
 }
+.orange{
+    color:orange !important;
+}
 ul{
     display:flex;
     justify-content: space-between;
@@ -24,6 +27,7 @@ ul{
     a{
         text-decoration:none;
         color:white;
+        
         font-size:130%;
         &:hover{
             color:white;

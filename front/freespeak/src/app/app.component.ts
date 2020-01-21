@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from './authentication.service';
 import {ActivatedRoute} from '@angular/router';
 import { Subscription } from 'rxjs';
+import {map} from 'rxjs/operators';
+
 
 
 
@@ -14,113 +16,11 @@ import { Subscription } from 'rxjs';
 
 export class AppComponent implements OnInit {
   title = 'Speak Free';
-  statusAccueil = false;
-  statusLogin = false;
-  statusProfile = false;
-  statusRegister = false;
-  statusCreate = false;
-  statusAdmin = false;
-  statusContact = false;
-  statusLogout = false;
     
   constructor(public auth: AuthenticationService, private route: ActivatedRoute) {
-    console.log(route.snapshot['url'])
+    console.log(route.url.pipe(map(segments => segments.join(''))))
   }
 
   ngOnInit(){
   }
-  change(index){
-    if(index=== 'accueil'){
-      this.statusAccueil = true;
-      this.statusLogin = false;
-      this.statusProfile = false;
-      this.statusRegister = false;
-      this.statusCreate = false;
-      this.statusAdmin = false;
-      this.statusContact = false;
-      this.statusLogout = false;
-    }
-    if(index === 'register'){
-      this.statusAccueil = false;
-      this.statusLogin = false;
-      this.statusProfile = false;
-      this.statusRegister = true;
-      this.statusCreate = false;
-      this.statusAdmin = false;
-      this.statusContact = false;
-      this.statusLogout = false;
-    }
-    if(index === 'login'){
-      this.statusAccueil = false;
-      this.statusLogin = true;
-      this.statusProfile = false;
-      this.statusRegister = false;
-      this.statusCreate = false;
-      this.statusAdmin = false;
-      this.statusContact = false;
-      this.statusLogout = false;
-    }
-    if(index === 'profile'){
-      this.statusAccueil = false;
-      this.statusLogin = false;
-      this.statusProfile = true;
-      this.statusRegister = false;
-      this.statusCreate = false;
-      this.statusAdmin = false;
-      this.statusContact = false;
-      this.statusLogout = false;
-    }
-    if(index === 'create'){
-      this.statusAccueil = false;
-      this.statusLogin = false;
-      this.statusProfile = false;
-      this.statusRegister = false;
-      this.statusCreate = true;
-      this.statusAdmin = false;
-      this.statusContact = false;
-      this.statusLogout = false;
-    }
-    if(index === 'admin'){
-      this.statusAccueil = false;
-      this.statusLogin = false;
-      this.statusProfile = false;
-      this.statusRegister = false;
-      this.statusCreate = false;
-      this.statusAdmin = true;
-      this.statusContact = false;
-      this.statusLogout = false;
-    }
-    if(index === 'register'){
-      this.statusAccueil = false;
-      this.statusLogin = false;
-      this.statusProfile = false;
-      this.statusRegister = true;
-      this.statusCreate = false;
-      this.statusAdmin = false;
-      this.statusContact = false;
-      this.statusLogout = false;
-    }
-    if(index === 'logout'){
-      this.statusAccueil = false;
-      this.statusLogin = false;
-      this.statusProfile = false;
-      this.statusRegister = false;
-      this.statusCreate = false;
-      this.statusAdmin = false;
-      this.statusContact = false;
-      this.statusLogout = true;
-    }
-    if(index === 'contact'){
-      this.statusAccueil = false;
-      this.statusLogin = false;
-      this.statusProfile = false;
-      this.statusRegister = false;
-      this.statusCreate = false;
-      this.statusAdmin = false;
-      this.statusContact = true;
-      this.statusLogout = false;
-    }
-  }
-  
-
 }
