@@ -4,14 +4,21 @@
     <p class="date ">{{date}}</p>
     <p class="originPost">{{post}}</p>
     <p class="username">{{username}}</p>
-    <button mat-button *ngIf="user.isLoggedIn()" (click)="answerFunction()"><span *ngIf="inputStatus===false">Répondre</span><span *ngIf="inputStatus===true">Annuler</span></button>
+    <button mat-stroked-button  *ngIf="user.isLoggedIn()" (click)="answerFunction()"><span *ngIf="inputStatus===false">Répondre</span><span *ngIf="inputStatus===true">Annuler</span></button>
 </div>
 <div class="answerInput" *ngIf="inputStatus">
     <form (submit)="createCommentForm()">
-    <mat-form-field>
-        <textarea matInput rows="10" cols="50" minlength="10" type="text" name="answerInput" placeholder="Votre réponse" [(ngModel)]="credentials.answerInput"></textarea>
+    <mat-form-field class='textarea'>
+        <textarea matInput cdkTextareaAutosize
+        cdkAutosizeMinRows="10"
+        cdkAutosizeMaxRows="25"
+        minlength="10" 
+        type="text" 
+        name="answerInput" 
+        placeholder="Votre réponse" 
+        [(ngModel)]="credentials.answerInput"></textarea>
     </mat-form-field>
-    <button type="submit" mat-button>Envoyer</button>
+    <button type="submit" mat-stroked-button >Envoyer</button>
 </form>
 </div>
 <div *ngFor="let answers of comments">

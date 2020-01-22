@@ -11,8 +11,8 @@
         <th>{{user.username}}</th>
         <th>{{user.usermail}}</th>
         <th class="isAdmin">{{user.isAdmin}}</th>
-        <th *ngIf="!user.isAdmin"><button mat-button (click)="updateAdmin(user._id)">Passer Admin</button></th>
-        <th><button mat-button (click)="delete(user._id)">Supprimer</button></th>
+        <th *ngIf="!user.isAdmin"><button mat-stroked-button (click)="updateAdmin(user._id)">Passer Admin</button></th>
+        <th><button mat-stroked-button (click)="delete(user._id)">Supprimer</button></th>
     </tr>
 </table>
 </div>
