@@ -4,8 +4,17 @@
     <p class="date ">{{date}}</p>
     <p class="originPost">{{post}}</p>
     <p class="username">{{username}}</p>
-    <button mat-stroked-button  *ngIf="user.isLoggedIn()" (click)="answerFunction()"><span *ngIf="inputStatus===false">Répondre</span><span *ngIf="inputStatus===true">Annuler</span></button>
 </div>
+
+<div *ngFor="let answers of comments">
+    <div [ngClass]="answers.commentuserId != this.userId ? 'right':'left'" class="answer">
+        <img src="{{answers.avatarAnswer}}" class="avatarTalk" alt="avatar">
+        <p class="username">{{answers.username}}</p>
+        <p class="answerUser">{{answers.answerInput}}</p>
+    </div>
+</div>
+<button mat-stroked-button  *ngIf="user.isLoggedIn()" (click)="answerFunction()"><span *ngIf="inputStatus===false">Répondre</span><span *ngIf="inputStatus===true">Annuler</span></button>
+
 <div class="answerInput" *ngIf="inputStatus">
     <form (submit)="createCommentForm()">
     <mat-form-field class='textarea'>
@@ -21,11 +30,3 @@
     <button type="submit" mat-stroked-button >Envoyer</button>
 </form>
 </div>
-<div *ngFor="let answers of comments">
-    <div [ngClass]="answers.commentuserId != this.userId ? 'right':'left'" class="answer">
-        <img src="{{answers.avatarAnswer}}" class="avatarTalk" alt="avatar">
-        <p class="username">{{answers.username}}</p>
-        <p class="answerUser">{{answers.answerInput}}</p>
-    </div>
-</div>
-
