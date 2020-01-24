@@ -10,6 +10,11 @@
     "mongodb": "^3.3.3",
     "passport": "^0.4.0"
   },
+  "scripts":{
+    "client": "cd ./front/freespeak && npm start",
+    "server": "cd ./server && npm start",
+    "build": "concurrently \"npm run client\" \"npm run server\""
+  },
   "devDependencies": {},
   "repository": {
     "type": "git",
