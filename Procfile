@@ -1,2 +1,2 @@
-web: npm start
+web: cd front/freespeak & npm start
 
